@@ -1,0 +1,2287 @@
+[
+  {
+    "name": "Button",
+    "description": "Displays a button or a component that looks like a button.",
+    "category": "button",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "button",
+      "primary",
+      "action"
+    ],
+    "previewHtml": "<button class='inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-900 text-white hover:bg-slate-900/90 h-10 px-4 py-2'>Shadcn Button</button>",
+    "installCommand": "npx shadcn-ui@latest add button"
+  },
+  {
+    "name": "Card",
+    "description": "Displays a card with header, content, and footer.",
+    "category": "card",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "card",
+      "container",
+      "panel"
+    ],
+    "previewHtml": "<div class='rounded-xl border bg-white bg-opacity-5 text-gray-100 shadow p-6 max-w-sm'><h3 class='font-semibold text-lg leading-none tracking-tight mb-2'>Card Title</h3><p class='text-sm text-gray-400'>Make changes to your account here. Click save when you're done.</p></div>",
+    "installCommand": "npx shadcn-ui@latest add card"
+  },
+  {
+    "name": "Input",
+    "description": "Displays a form input field or a component that looks like an input field.",
+    "category": "form",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "input",
+      "form",
+      "text",
+      "field"
+    ],
+    "previewHtml": "<input type='email' placeholder='Email' class='flex h-10 w-full rounded-md border border-gray-600 bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:cursor-not-allowed disabled:opacity-50 text-white max-w-xs' />",
+    "installCommand": "npx shadcn-ui@latest add input"
+  },
+  {
+    "name": "Avatar",
+    "description": "An image element with a fallback for representing the user.",
+    "category": "data display",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "avatar",
+      "user",
+      "image",
+      "profile"
+    ],
+    "previewHtml": "<span class='relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-700 bg-gray-800 items-center justify-center text-white font-medium'>CN</span>",
+    "installCommand": "npx shadcn-ui@latest add avatar"
+  },
+  {
+    "name": "Badge",
+    "description": "Displays a badge or a component that looks like a badge.",
+    "category": "data display",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "badge",
+      "pill",
+      "label"
+    ],
+    "previewHtml": "<div class='inline-flex items-center rounded-full border border-transparent bg-indigo-500 px-2.5 py-0.5 text-xs font-semibold text-white'>New</div>",
+    "installCommand": "npx shadcn-ui@latest add badge"
+  },
+  {
+    "name": "MUI Button",
+    "description": "Material Design buttons allow users to take actions, and make choices, with a single tap.",
+    "category": "button",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "button",
+      "material",
+      "action"
+    ],
+    "previewHtml": "<button style='background-color:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;border:none;box-shadow:0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);font-family:Roboto, sans-serif;font-weight:500;font-size:0.875rem;line-height:1.75;letter-spacing:0.02857em;text-transform:uppercase;cursor:pointer;'>MUI BUTTON</button>",
+    "installCommand": "npm install @mui/material @emotion/react @emotion/styled",
+    "importCode": "import Button from '@mui/material/Button';\n\n<Button variant=\"contained\">Hello World</Button>"
+  },
+  {
+    "name": "MUI TextField",
+    "description": "Text fields let users enter and edit text.",
+    "category": "form",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "input",
+      "material",
+      "textfield"
+    ],
+    "previewHtml": "<div style='display:inline-flex;flex-direction:column;position:relative;border:1px solid rgba(255, 255, 255, 0.23);border-radius:4px;padding:16.5px 14px;'><label style='position:absolute;top:-8px;left:10px;background:#000;padding:0 5px;color:rgba(255, 255, 255, 0.7);font-size:0.75rem;font-family:Roboto;'>Label</label><input type='text' style='background:transparent;border:none;outline:none;color:#fff;font-family:Roboto;font-size:1rem;' value='Filled Value'></div>",
+    "installCommand": "npm install @mui/material @emotion/react @emotion/styled",
+    "importCode": "import TextField from '@mui/material/TextField';\n\n<TextField id=\"outlined-basic\" label=\"Outlined\" variant=\"outlined\" />"
+  },
+  {
+    "name": "Chakra Button",
+    "description": "Button component is used to trigger an action or event, such as submitting a form or canceling an action.",
+    "category": "button",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "button",
+      "chakra",
+      "action"
+    ],
+    "previewHtml": "<button style='background-color:#319795;color:#fff;font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif;font-weight:600;height:2.5rem;min-width:2.5rem;font-size:1rem;padding-inline-start:1rem;padding-inline-end:1rem;border-radius:0.375rem;border:none;cursor:pointer;'>Chakra Button</button>",
+    "installCommand": "npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion",
+    "importCode": "import { Button } from '@chakra-ui/react'\n\n<Button colorScheme='teal'>Button</Button>"
+  },
+  {
+    "name": "Chakra Switch",
+    "description": "The Switch component is used as an alternative for the Checkbox component.",
+    "category": "form",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "switch",
+      "toggle",
+      "chakra"
+    ],
+    "previewHtml": "<div style='display:inline-flex;align-items:center;cursor:pointer;'><div style='width:1.875rem;height:1rem;background-color:#319795;border-radius:9999px;position:relative;'><div style='width:0.875rem;height:0.875rem;background-color:white;border-radius:50%;position:absolute;top:0.0625rem;transform:translateX(0.875rem);transition:transform 0.2s;'></div></div></div>",
+    "installCommand": "npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion",
+    "importCode": "import { Switch, FormControl, FormLabel } from '@chakra-ui/react'\n\n<FormControl display='flex' alignItems='center'>\n  <FormLabel htmlFor='email-alerts' mb='0'>\n    Enable email alerts?\n  </FormLabel>\n  <Switch id='email-alerts' />\n</FormControl>"
+  },
+  {
+    "name": "NextUI Button",
+    "description": "Buttons allow users to perform actions and choose with a single tap.",
+    "category": "button",
+    "framework": "react",
+    "library": "nextui",
+    "type": "package",
+    "tags": [
+      "button",
+      "nextui",
+      "gradient"
+    ],
+    "previewHtml": "<button style='background:linear-gradient(to right, #FF0080, #7928CA);color:white;border:none;border-radius:9999px;padding:0.5rem 1rem;font-weight:500;box-shadow:0 4px 14px 0 rgba(255, 0, 128, 0.39);cursor:pointer;'>NextUI Gradient</button>",
+    "installCommand": "npm install @nextui-org/react framer-motion",
+    "importCode": "import {Button} from \"@nextui-org/react\";\n\n<Button color=\"primary\" variant=\"shadow\">\n  Shadow\n</Button>"
+  },
+  {
+    "name": "Radix Dialog",
+    "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
+    "category": "modal",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "dialog",
+      "modal",
+      "radix",
+      "accessibility"
+    ],
+    "previewHtml": "<div style='padding:20px;background:#1a1a1a;border:1px solid #333;border-radius:8px;max-width:300px;'><h4 style='color:white;margin:0 0 10px 0;font-family:sans-serif;'>Edit Profile</h4><p style='color:#888;font-size:14px;font-family:sans-serif;margin:0 0 20px 0;'>Make changes to your profile here.</p><button style='background:#3b82f6;color:white;border:none;padding:8px 16px;border-radius:4px;'>Save Changes</button></div>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import * as Dialog from '@radix-ui/react-dialog';\n\n<Dialog.Root>\n  <Dialog.Trigger>Open</Dialog.Trigger>\n  <Dialog.Portal>\n    <Dialog.Overlay />\n    <Dialog.Content>\n      <Dialog.Title>Dialog Title</Dialog.Title>\n      <Dialog.Description>Dialog Description</Dialog.Description>\n      <Dialog.Close>Close</Dialog.Close>\n    </Dialog.Content>\n  </Dialog.Portal>\n</Dialog.Root>"
+  },
+  {
+    "name": "MUI Snackbar",
+    "description": "Snackbars provide brief notifications.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "snackbar",
+      "toast",
+      "notification"
+    ],
+    "previewHtml": "<div style='background-color:#323232;color:#fff;padding:14px 16px;border-radius:4px;font-family:Roboto;font-size:0.875rem;box-shadow:0px 3px 5px -1px rgba(0,0,0,0.2);display:inline-flex;align-items:center;'>Note archived</div>",
+    "installCommand": "npm install @mui/material @emotion/react @emotion/styled",
+    "importCode": "import Snackbar from '@mui/material/Snackbar';\n\n<Snackbar\n  open={open}\n  autoHideDuration={6000}\n  onClose={handleClose}\n  message=\"Note archived\"\n/>"
+  },
+  {
+    "name": "Chakra Spinner",
+    "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "spinner",
+      "loading",
+      "chakra"
+    ],
+    "previewHtml": "<div style='width:2rem;height:2rem;border:3px solid rgba(49, 151, 149, 0.2);border-top-color:#319795;border-radius:50%;animation:spin 1s linear infinite;'></div><style>@keyframes spin { to { transform: rotate(360deg); } }</style>",
+    "installCommand": "npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion",
+    "importCode": "import { Spinner } from '@chakra-ui/react'\n\n<Spinner color='red.500' />"
+  },
+  {
+    "name": "Shadcn Toast",
+    "description": "A succinct message that is displayed temporarily.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "toast",
+      "notification",
+      "shadcn"
+    ],
+    "previewHtml": "<div class='pointer-events-auto flex w-full max-w-md rounded-md border border-gray-800 bg-[#0a0a0a] shadow-lg p-4 space-x-4'><div class='flex-1'><h3 class='text-sm font-semibold text-white'>Scheduled: Catch up</h3><p class='text-sm text-gray-400'>Friday, February 10, 2024 at 5:57 PM</p></div><button class='text-sm font-medium border border-gray-800 px-3 py-1 rounded bg-[#111] text-white'>Undo</button></div>",
+    "installCommand": "npx shadcn-ui@latest add toast"
+  },
+  {
+    "name": "MUI Card",
+    "description": "Cards contain content and actions about a single subject.",
+    "category": "card",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "card",
+      "material",
+      "container"
+    ],
+    "previewHtml": "<div style='background-color:#1e1e1e;color:#fff;border-radius:4px;box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);max-width:345px;'><div style='padding:16px;'><div style='font-family:Roboto;font-size:1.25rem;font-weight:400;margin-bottom:0.35em;'>Lizard</div><div style='font-family:Roboto;font-size:0.875rem;color:rgba(255, 255, 255, 0.7);'>Lizards are a widespread group of squamate reptiles, with over 6,000 species.</div></div></div>",
+    "installCommand": "npm install @mui/material @emotion/react @emotion/styled",
+    "importCode": "import Card from '@mui/material/Card';\nimport CardContent from '@mui/material/CardContent';\n\n<Card sx={{ minWidth: 275 }}>\n  <CardContent>\n    Typography elements here\n  </CardContent>\n</Card>"
+  },
+  {
+    "name": "Untitled UI React Button",
+    "description": "A button component built with Untitled UI React design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;background:#fff;padding:10px 16px;font-family:Inter;\">Untitled UI React Button</button>",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Button } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Untitled UI React Input",
+    "description": "A input component built with Untitled UI React design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Untitled UI React Input\" style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;bg-none:#fff;padding:10px 16px;font-family:Inter;; background:transparent;\" />",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Input } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Untitled UI React Form",
+    "description": "A form component built with Untitled UI React design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;background:#fff;padding:10px 16px;font-family:Inter;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Form } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Untitled UI React Card",
+    "description": "A card component built with Untitled UI React design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;background:#fff;padding:10px 16px;font-family:Inter;; min-width: 250px; text-transform:none;\"><h3>Untitled UI React Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the untitled-ui component library.</p></div>",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Card } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Untitled UI React Modal",
+    "description": "A modal component built with Untitled UI React design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;background:#fff;padding:10px 16px;font-family:Inter;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Untitled UI React Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Modal } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Untitled UI React Feedback",
+    "description": "A feedback component built with Untitled UI React design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;background:#fff;padding:10px 16px;font-family:Inter;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Untitled UI React Success Toast</div>",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Feedback } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Untitled UI React Data display",
+    "description": "A data display component built with Untitled UI React design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;background:#fff;padding:10px 16px;font-family:Inter;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Datadisplay } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Untitled UI React Navigation",
+    "description": "A navigation component built with Untitled UI React design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "untitled-ui",
+    "type": "package",
+    "tags": [
+      "untitled-ui",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.05);color:#344054;background:#fff;padding:10px 16px;font-family:Inter;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">UNTITLED-UI</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install @untitled-ui/react",
+    "importCode": "import { Navigation } from 'untitled-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Button",
+    "description": "A button component built with shadcn/ui design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:1px solid #1f2937;border-radius:6px;background:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;\">shadcn/ui Button</button>",
+    "installCommand": "npx shadcn-ui@latest add button",
+    "importCode": "import { Button } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Input",
+    "description": "A input component built with shadcn/ui design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"shadcn/ui Input\" style=\"border:1px solid #1f2937;border-radius:6px;bg-none:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;; background:transparent;\" />",
+    "installCommand": "npx shadcn-ui@latest add input",
+    "importCode": "import { Input } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Form",
+    "description": "A form component built with shadcn/ui design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:1px solid #1f2937;border-radius:6px;background:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npx shadcn-ui@latest add form",
+    "importCode": "import { Form } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Card",
+    "description": "A card component built with shadcn/ui design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #1f2937;border-radius:6px;background:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;; min-width: 250px; text-transform:none;\"><h3>shadcn/ui Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the shadcn component library.</p></div>",
+    "installCommand": "npx shadcn-ui@latest add card",
+    "importCode": "import { Card } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Modal",
+    "description": "A modal component built with shadcn/ui design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:1px solid #1f2937;border-radius:6px;background:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">shadcn/ui Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npx shadcn-ui@latest add modal",
+    "importCode": "import { Modal } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Feedback",
+    "description": "A feedback component built with shadcn/ui design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #1f2937;border-radius:6px;background:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>shadcn/ui Success Toast</div>",
+    "installCommand": "npx shadcn-ui@latest add feedback",
+    "importCode": "import { Feedback } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Data display",
+    "description": "A data display component built with shadcn/ui design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:1px solid #1f2937;border-radius:6px;background:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npx shadcn-ui@latest add data display",
+    "importCode": "import { Datadisplay } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "shadcn/ui Navigation",
+    "description": "A navigation component built with shadcn/ui design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "shadcn",
+    "type": "cli",
+    "tags": [
+      "shadcn",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:1px solid #1f2937;border-radius:6px;background:#030712;color:#f9fafb;padding:8px 16px;font-weight:500;font-family:system-ui;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">SHADCN</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npx shadcn-ui@latest add navigation",
+    "importCode": "import { Navigation } from 'shadcn';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Button",
+    "description": "A button component built with Tailwind Plus design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border-radius:12px;background:linear-gradient(to right, #ec4899, #8b5cf6);color:#fff;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);\">Tailwind Plus Button</button>",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Button } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Input",
+    "description": "A input component built with Tailwind Plus design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Tailwind Plus Input\" style=\"border-radius:12px;bg-none:linear-gradient(to right, #ec4899, #8b5cf6);color:gray;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);; background:transparent;\" />",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Input } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Form",
+    "description": "A form component built with Tailwind Plus design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border-radius:12px;background:linear-gradient(to right, #ec4899, #8b5cf6);color:#fff;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Form } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Card",
+    "description": "A card component built with Tailwind Plus design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border-radius:12px;background:linear-gradient(to right, #ec4899, #8b5cf6);color:#fff;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);; min-width: 250px; text-transform:none;\"><h3>Tailwind Plus Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the tailwind-plus component library.</p></div>",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Card } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Modal",
+    "description": "A modal component built with Tailwind Plus design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border-radius:12px;background:linear-gradient(to right, #ec4899, #8b5cf6);color:#fff;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Tailwind Plus Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Modal } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Feedback",
+    "description": "A feedback component built with Tailwind Plus design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border-radius:12px;background:linear-gradient(to right, #ec4899, #8b5cf6);color:#fff;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Tailwind Plus Success Toast</div>",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Feedback } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Data display",
+    "description": "A data display component built with Tailwind Plus design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border-radius:12px;background:linear-gradient(to right, #ec4899, #8b5cf6);color:#fff;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Datadisplay } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailwind Plus Navigation",
+    "description": "A navigation component built with Tailwind Plus design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "tailwind-plus",
+    "type": "package",
+    "tags": [
+      "tailwind-plus",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border-radius:12px;background:linear-gradient(to right, #ec4899, #8b5cf6);color:#fff;padding:12px 24px;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">TAILWIND-PLUS</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install tailwind-plus",
+    "importCode": "import { Navigation } from 'tailwind-plus';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Button",
+    "description": "A button component built with Kibo UI design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border-radius:0;border:2px solid black;background:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;\">Kibo UI Button</button>",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Button } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Input",
+    "description": "A input component built with Kibo UI design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Kibo UI Input\" style=\"border-radius:0;border:2px solid black;bg-none:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;; background:transparent;\" />",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Input } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Form",
+    "description": "A form component built with Kibo UI design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border-radius:0;border:2px solid black;background:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Form } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Card",
+    "description": "A card component built with Kibo UI design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border-radius:0;border:2px solid black;background:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;; min-width: 250px; text-transform:none;\"><h3>Kibo UI Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the kibo-ui component library.</p></div>",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Card } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Modal",
+    "description": "A modal component built with Kibo UI design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border-radius:0;border:2px solid black;background:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Kibo UI Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Modal } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Feedback",
+    "description": "A feedback component built with Kibo UI design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border-radius:0;border:2px solid black;background:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Kibo UI Success Toast</div>",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Feedback } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Data display",
+    "description": "A data display component built with Kibo UI design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border-radius:0;border:2px solid black;background:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Datadisplay } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Kibo UI Navigation",
+    "description": "A navigation component built with Kibo UI design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "kibo-ui",
+    "type": "package",
+    "tags": [
+      "kibo-ui",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border-radius:0;border:2px solid black;background:white;color:black;padding:10px 20px;font-weight:bold;text-transform:uppercase;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">KIBO-UI</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install kibo-ui",
+    "importCode": "import { Navigation } from 'kibo-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Button",
+    "description": "A button component built with React Aria Components design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:none;background:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;\">React Aria Components Button</button>",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Button } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Input",
+    "description": "A input component built with React Aria Components design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"React Aria Components Input\" style=\"border:none;bg-none:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;; background:transparent;\" />",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Input } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Form",
+    "description": "A form component built with React Aria Components design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:none;background:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Form } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Card",
+    "description": "A card component built with React Aria Components design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;; min-width: 250px; text-transform:none;\"><h3>React Aria Components Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the react-aria component library.</p></div>",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Card } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Modal",
+    "description": "A modal component built with React Aria Components design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:none;background:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">React Aria Components Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Modal } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Feedback",
+    "description": "A feedback component built with React Aria Components design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>React Aria Components Success Toast</div>",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Feedback } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Data display",
+    "description": "A data display component built with React Aria Components design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:none;background:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Datadisplay } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "React Aria Components Navigation",
+    "description": "A navigation component built with React Aria Components design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "react-aria",
+    "type": "package",
+    "tags": [
+      "react-aria",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:none;background:#e5e7eb;color:#111827;padding:8px 16px;border-radius:4px;outline:2px solid transparent;transition:all 0.2s;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">REACT-ARIA</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install react-aria-components",
+    "importCode": "import { Navigation } from 'react-aria';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Button",
+    "description": "A button component built with Material UI (MUI) design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:none;background:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;\">Material UI (MUI) Button</button>",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Button } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Input",
+    "description": "A input component built with Material UI (MUI) design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Material UI (MUI) Input\" style=\"border:none;bg-none:#1976d2;color:gray;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;; background:transparent;\" />",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Input } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Form",
+    "description": "A form component built with Material UI (MUI) design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:none;background:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Form } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Card",
+    "description": "A card component built with Material UI (MUI) design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;; min-width: 250px; text-transform:none;\"><h3>Material UI (MUI) Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the mui component library.</p></div>",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Card } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Modal",
+    "description": "A modal component built with Material UI (MUI) design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:none;background:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Material UI (MUI) Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Modal } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Feedback",
+    "description": "A feedback component built with Material UI (MUI) design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Material UI (MUI) Success Toast</div>",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Feedback } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Data display",
+    "description": "A data display component built with Material UI (MUI) design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:none;background:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Datadisplay } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Material UI (MUI) Navigation",
+    "description": "A navigation component built with Material UI (MUI) design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "mui",
+    "type": "package",
+    "tags": [
+      "mui",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:none;background:#1976d2;color:#fff;padding:6px 16px;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14);text-transform:uppercase;font-family:Roboto;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">MUI</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install @mui/material",
+    "importCode": "import { Navigation } from 'mui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Button",
+    "description": "A button component built with Reshaped design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border-radius:24px;padding:12px 24px;background:#0052cc;color:white;border:none;font-weight:bold;\">Reshaped Button</button>",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Button } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Input",
+    "description": "A input component built with Reshaped design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Reshaped Input\" style=\"border-radius:24px;padding:12px 24px;bg-none:#0052cc;color:white;border:none;font-weight:bold;; background:transparent;\" />",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Input } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Form",
+    "description": "A form component built with Reshaped design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border-radius:24px;padding:12px 24px;background:#0052cc;color:white;border:none;font-weight:bold;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Form } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Card",
+    "description": "A card component built with Reshaped design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border-radius:24px;padding:12px 24px;background:#0052cc;color:white;border:none;font-weight:bold;; min-width: 250px; text-transform:none;\"><h3>Reshaped Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the reshaped component library.</p></div>",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Card } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Modal",
+    "description": "A modal component built with Reshaped design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border-radius:24px;padding:12px 24px;background:#0052cc;color:white;border:none;font-weight:bold;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Reshaped Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Modal } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Feedback",
+    "description": "A feedback component built with Reshaped design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border-radius:24px;padding:12px 24px;background:#0052cc;color:white;border:none;font-weight:bold;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Reshaped Success Toast</div>",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Feedback } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Data display",
+    "description": "A data display component built with Reshaped design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border-radius:24px;padding:12px 24px;background:#0052cc;color:white;border:none;font-weight:bold;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Datadisplay } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "Reshaped Navigation",
+    "description": "A navigation component built with Reshaped design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "reshaped",
+    "type": "package",
+    "tags": [
+      "reshaped",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border-radius:24px;padding:12px 24px;background:#0052cc;color:white;border:none;font-weight:bold;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">RESHAPED</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install reshaped",
+    "importCode": "import { Navigation } from 'reshaped';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Button",
+    "description": "A button component built with AlignUI design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:1px solid #000;background:#000;color:#fff;border-radius:999px;padding:8px 24px;\">AlignUI Button</button>",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Button } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Input",
+    "description": "A input component built with AlignUI design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"AlignUI Input\" style=\"border:1px solid #000;bg-none:#000;color:gray;border-radius:999px;padding:8px 24px;; background:transparent;\" />",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Input } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Form",
+    "description": "A form component built with AlignUI design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:1px solid #000;background:#000;color:#fff;border-radius:999px;padding:8px 24px;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Form } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Card",
+    "description": "A card component built with AlignUI design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #000;background:#000;color:#fff;border-radius:999px;padding:8px 24px;; min-width: 250px; text-transform:none;\"><h3>AlignUI Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the align-ui component library.</p></div>",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Card } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Modal",
+    "description": "A modal component built with AlignUI design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:1px solid #000;background:#000;color:#fff;border-radius:999px;padding:8px 24px;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">AlignUI Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Modal } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Feedback",
+    "description": "A feedback component built with AlignUI design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #000;background:#000;color:#fff;border-radius:999px;padding:8px 24px;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>AlignUI Success Toast</div>",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Feedback } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Data display",
+    "description": "A data display component built with AlignUI design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:1px solid #000;background:#000;color:#fff;border-radius:999px;padding:8px 24px;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Datadisplay } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "AlignUI Navigation",
+    "description": "A navigation component built with AlignUI design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "align-ui",
+    "type": "package",
+    "tags": [
+      "align-ui",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:1px solid #000;background:#000;color:#fff;border-radius:999px;padding:8px 24px;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">ALIGN-UI</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install align-ui",
+    "importCode": "import { Navigation } from 'align-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Button",
+    "description": "A button component built with Base UI design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:none;background:transparent;color:#007fff;text-decoration:underline;padding:8px;\">Base UI Button</button>",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Button } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Input",
+    "description": "A input component built with Base UI design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Base UI Input\" style=\"border:none;bg-none:transparent;color:#007fff;text-decoration:underline;padding:8px;; background:transparent;\" />",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Input } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Form",
+    "description": "A form component built with Base UI design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:none;background:transparent;color:#007fff;text-decoration:underline;padding:8px;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Form } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Card",
+    "description": "A card component built with Base UI design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:none;background:transparent;color:#007fff;text-decoration:underline;padding:8px;; min-width: 250px; text-transform:none;\"><h3>Base UI Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the base-ui component library.</p></div>",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Card } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Modal",
+    "description": "A modal component built with Base UI design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:none;background:transparent;color:#007fff;text-decoration:underline;padding:8px;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Base UI Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Modal } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Feedback",
+    "description": "A feedback component built with Base UI design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:none;background:transparent;color:#007fff;text-decoration:underline;padding:8px;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Base UI Success Toast</div>",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Feedback } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Data display",
+    "description": "A data display component built with Base UI design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:none;background:transparent;color:#007fff;text-decoration:underline;padding:8px;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Datadisplay } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Base UI Navigation",
+    "description": "A navigation component built with Base UI design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "base-ui",
+    "type": "package",
+    "tags": [
+      "base-ui",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:none;background:transparent;color:#007fff;text-decoration:underline;padding:8px;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">BASE-UI</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install @mui/base",
+    "importCode": "import { Navigation } from 'base-ui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Button",
+    "description": "A button component built with Tailark design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;\">Tailark Button</button>",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Button } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Input",
+    "description": "A input component built with Tailark design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Tailark Input\" style=\"border:1px solid rgba(255,255,255,0.1);bg-none:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;; background:transparent;\" />",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Input } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Form",
+    "description": "A form component built with Tailark design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Form } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Card",
+    "description": "A card component built with Tailark design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;; min-width: 250px; text-transform:none;\"><h3>Tailark Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the tailark component library.</p></div>",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Card } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Modal",
+    "description": "A modal component built with Tailark design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Tailark Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Modal } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Feedback",
+    "description": "A feedback component built with Tailark design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Tailark Success Toast</div>",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Feedback } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Data display",
+    "description": "A data display component built with Tailark design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Datadisplay } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "Tailark Navigation",
+    "description": "A navigation component built with Tailark design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "tailark",
+    "type": "package",
+    "tags": [
+      "tailark",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:black;padding:12px 20px;border-radius:16px;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">TAILARK</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install tailark",
+    "importCode": "import { Navigation } from 'tailark';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Button",
+    "description": "A button component built with HeroUI (NextUI) design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:none;border-radius:14px;background:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;\">HeroUI (NextUI) Button</button>",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Button } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Input",
+    "description": "A input component built with HeroUI (NextUI) design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"HeroUI (NextUI) Input\" style=\"border:none;border-radius:14px;bg-none:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;; background:transparent;\" />",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Input } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Form",
+    "description": "A form component built with HeroUI (NextUI) design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:none;border-radius:14px;background:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Form } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Card",
+    "description": "A card component built with HeroUI (NextUI) design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:none;border-radius:14px;background:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;; min-width: 250px; text-transform:none;\"><h3>HeroUI (NextUI) Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the heroui component library.</p></div>",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Card } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Modal",
+    "description": "A modal component built with HeroUI (NextUI) design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:none;border-radius:14px;background:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">HeroUI (NextUI) Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Modal } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Feedback",
+    "description": "A feedback component built with HeroUI (NextUI) design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:none;border-radius:14px;background:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>HeroUI (NextUI) Success Toast</div>",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Feedback } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Data display",
+    "description": "A data display component built with HeroUI (NextUI) design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:none;border-radius:14px;background:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Datadisplay } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "HeroUI (NextUI) Navigation",
+    "description": "A navigation component built with HeroUI (NextUI) design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "heroui",
+    "type": "package",
+    "tags": [
+      "heroui",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:none;border-radius:14px;background:linear-gradient(45deg, #006fee, #004493);color:white;box-shadow:0 4px 14px 0 rgba(0,111,238,0.39);padding:10px 20px;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">HEROUI</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install @nextui-org/react",
+    "importCode": "import { Navigation } from 'heroui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Button",
+    "description": "A button component built with Mantine UI design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:none;background:#228be6;color:#fff;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;\">Mantine UI Button</button>",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Button } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Input",
+    "description": "A input component built with Mantine UI design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Mantine UI Input\" style=\"border:none;bg-none:#228be6;color:gray;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;; background:transparent;\" />",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Input } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Form",
+    "description": "A form component built with Mantine UI design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:none;background:#228be6;color:#fff;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Form } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Card",
+    "description": "A card component built with Mantine UI design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#228be6;color:#fff;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;; min-width: 250px; text-transform:none;\"><h3>Mantine UI Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the mantine component library.</p></div>",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Card } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Modal",
+    "description": "A modal component built with Mantine UI design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:none;background:#228be6;color:#fff;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Mantine UI Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Modal } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Feedback",
+    "description": "A feedback component built with Mantine UI design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#228be6;color:#fff;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Mantine UI Success Toast</div>",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Feedback } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Data display",
+    "description": "A data display component built with Mantine UI design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:none;background:#228be6;color:#fff;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Datadisplay } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "Mantine UI Navigation",
+    "description": "A navigation component built with Mantine UI design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "mantine",
+    "type": "package",
+    "tags": [
+      "mantine",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:none;background:#228be6;color:#fff;border-radius:4px;padding:8px 18px;font-family:sans-serif;font-weight:600;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">MANTINE</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install @mantine/core",
+    "importCode": "import { Navigation } from 'mantine';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Button",
+    "description": "A button component built with daisyUI design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:none;background:#570df8;color:#fff;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;\">daisyUI Button</button>",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Button } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Input",
+    "description": "A input component built with daisyUI design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"daisyUI Input\" style=\"border:none;bg-none:#570df8;color:gray;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;; background:transparent;\" />",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Input } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Form",
+    "description": "A form component built with daisyUI design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:none;background:#570df8;color:#fff;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Form } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Card",
+    "description": "A card component built with daisyUI design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#570df8;color:#fff;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;; min-width: 250px; text-transform:none;\"><h3>daisyUI Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the daisyui component library.</p></div>",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Card } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Modal",
+    "description": "A modal component built with daisyUI design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:none;background:#570df8;color:#fff;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">daisyUI Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Modal } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Feedback",
+    "description": "A feedback component built with daisyUI design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#570df8;color:#fff;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>daisyUI Success Toast</div>",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Feedback } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Data display",
+    "description": "A data display component built with daisyUI design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:none;background:#570df8;color:#fff;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Datadisplay } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "daisyUI Navigation",
+    "description": "A navigation component built with daisyUI design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "daisyui",
+    "type": "package",
+    "tags": [
+      "daisyui",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:none;background:#570df8;color:#fff;border-radius:0.5rem;padding:0.75rem 1.5rem;text-transform:uppercase;font-weight:600;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">DAISYUI</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm i -D daisyui@latest",
+    "importCode": "import { Navigation } from 'daisyui';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Button",
+    "description": "A button component built with Ant Design design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:1px solid #1677ff;background:#1677ff;color:#fff;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);\">Ant Design Button</button>",
+    "installCommand": "npm install antd",
+    "importCode": "import { Button } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Input",
+    "description": "A input component built with Ant Design design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Ant Design Input\" style=\"border:1px solid #1677ff;bg-none:#1677ff;color:gray;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);; background:transparent;\" />",
+    "installCommand": "npm install antd",
+    "importCode": "import { Input } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Form",
+    "description": "A form component built with Ant Design design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:1px solid #1677ff;background:#1677ff;color:#fff;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install antd",
+    "importCode": "import { Form } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Card",
+    "description": "A card component built with Ant Design design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #1677ff;background:#1677ff;color:#fff;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);; min-width: 250px; text-transform:none;\"><h3>Ant Design Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the ant-design component library.</p></div>",
+    "installCommand": "npm install antd",
+    "importCode": "import { Card } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Modal",
+    "description": "A modal component built with Ant Design design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:1px solid #1677ff;background:#1677ff;color:#fff;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Ant Design Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install antd",
+    "importCode": "import { Modal } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Feedback",
+    "description": "A feedback component built with Ant Design design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #1677ff;background:#1677ff;color:#fff;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Ant Design Success Toast</div>",
+    "installCommand": "npm install antd",
+    "importCode": "import { Feedback } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Data display",
+    "description": "A data display component built with Ant Design design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:1px solid #1677ff;background:#1677ff;color:#fff;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install antd",
+    "importCode": "import { Datadisplay } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Ant Design Navigation",
+    "description": "A navigation component built with Ant Design design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "ant-design",
+    "type": "package",
+    "tags": [
+      "ant-design",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:1px solid #1677ff;background:#1677ff;color:#fff;border-radius:6px;padding:4px 15px;box-shadow:0 2px 0 rgba(5,145,255,0.1);; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">ANT-DESIGN</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install antd",
+    "importCode": "import { Navigation } from 'ant-design';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Button",
+    "description": "A button component built with Radix UI design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:1px solid #3f3f46;background:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;\">Radix UI Button</button>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Button } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Input",
+    "description": "A input component built with Radix UI design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Radix UI Input\" style=\"border:1px solid #3f3f46;bg-none:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;; background:transparent;\" />",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Input } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Form",
+    "description": "A form component built with Radix UI design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:1px solid #3f3f46;background:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Form } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Card",
+    "description": "A card component built with Radix UI design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #3f3f46;background:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;; min-width: 250px; text-transform:none;\"><h3>Radix UI Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the radix component library.</p></div>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Card } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Modal",
+    "description": "A modal component built with Radix UI design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:1px solid #3f3f46;background:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Radix UI Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Modal } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Feedback",
+    "description": "A feedback component built with Radix UI design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:1px solid #3f3f46;background:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Radix UI Success Toast</div>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Feedback } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Data display",
+    "description": "A data display component built with Radix UI design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:1px solid #3f3f46;background:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Datadisplay } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Radix UI Navigation",
+    "description": "A navigation component built with Radix UI design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "radix",
+    "type": "package",
+    "tags": [
+      "radix",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:1px solid #3f3f46;background:#18181b;color:#fafafa;border-radius:6px;padding:8px 16px;font-family:sans-serif;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">RADIX</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm install @radix-ui/react-dialog",
+    "importCode": "import { Navigation } from 'radix';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Button",
+    "description": "A button component built with Chakra UI design principles.",
+    "category": "button",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "button",
+      "button"
+    ],
+    "previewHtml": "<button style=\"border:none;background:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;\">Chakra UI Button</button>",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Button } from 'chakra';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Input",
+    "description": "A input component built with Chakra UI design principles.",
+    "category": "input",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "input",
+      "input"
+    ],
+    "previewHtml": "<input type=\"text\" placeholder=\"Chakra UI Input\" style=\"border:none;bg-none:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;; background:transparent;\" />",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Input } from 'chakra';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Form",
+    "description": "A form component built with Chakra UI design principles.",
+    "category": "form",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "form",
+      "form"
+    ],
+    "previewHtml": "<form style=\"border:none;background:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;; display:flex; flex-direction:column; gap:10px;\"><input placeholder=\"Email\" style=\"padding:5px;\"/><button type=\"button\" style=\"padding:5px;\">Submit Form</button></form>",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Form } from 'chakra';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Card",
+    "description": "A card component built with Chakra UI design principles.",
+    "category": "card",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "card",
+      "card"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;; min-width: 250px; text-transform:none;\"><h3>Chakra UI Card</h3><p style=\"font-size:12px; opacity:0.8; margin-top:8px;\">This card demonstrates the visual aesthetic of the chakra component library.</p></div>",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Card } from 'chakra';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Modal",
+    "description": "A modal component built with Chakra UI design principles.",
+    "category": "modal",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "modal",
+      "modal"
+    ],
+    "previewHtml": "<div style=\"position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center;\"> <div style=\"border:none;background:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;; padding:30px; text-transform:none; min-width:300px;\"><h2 style=\"margin:0 0 10px 0\">Chakra UI Modal</h2><button style=\"margin-top:15px; padding:5px 10px;\">Close Window</button></div></div>",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Modal } from 'chakra';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Feedback",
+    "description": "A feedback component built with Chakra UI design principles.",
+    "category": "feedback",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "feedback",
+      "feedback"
+    ],
+    "previewHtml": "<div style=\"border:none;background:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;; border-left: 4px solid #10b981; display:flex; gap:10px; align-items:center;\"><span style=\"background:#10b981; border-radius:50%; width:16px; height:16px; display:inline-block;\"></span>Chakra UI Success Toast</div>",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Feedback } from 'chakra';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Data display",
+    "description": "A data display component built with Chakra UI design principles.",
+    "category": "data display",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "data",
+      "data display"
+    ],
+    "previewHtml": "<table style=\"border:none;background:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;; width: 100%; border-collapse: collapse;\"><tr style=\"border-bottom:1px solid currentColor\"><th>Name</th><th>Status</th></tr><tr><td>Example</td><td>Active</td></tr></table>",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Datadisplay } from 'chakra';\n\n// Usage rendering"
+  },
+  {
+    "name": "Chakra UI Navigation",
+    "description": "A navigation component built with Chakra UI design principles.",
+    "category": "navigation",
+    "framework": "react",
+    "library": "chakra",
+    "type": "package",
+    "tags": [
+      "chakra",
+      "nav",
+      "navigation"
+    ],
+    "previewHtml": "<nav style=\"border:none;background:#319795;color:white;border-radius:0.375rem;padding:0.5rem 1rem;font-weight:600;; display:flex; gap:20px; align-items:center;\"><span style=\"font-weight:900\">CHAKRA</span><a href=\"#\">Home</a><a href=\"#\">Pricing</a><a href=\"#\">Docs</a></nav>",
+    "installCommand": "npm i @chakra-ui/react",
+    "importCode": "import { Navigation } from 'chakra';\n\n// Usage rendering"
+  }
+]
