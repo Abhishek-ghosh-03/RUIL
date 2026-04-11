@@ -1,7 +1,9 @@
 import axios from "axios";
 
-// 🔥 Use the production URL when deployed, otherwise use localhost
-const baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+// 🔥 Normalize API URL to ensure it always includes /api
+let rawBaseURL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+if (rawBaseURL.endsWith('/')) rawBaseURL = rawBaseURL.slice(0, -1);
+const baseURL = rawBaseURL.includes('/api') ? rawBaseURL : `${rawBaseURL}/api`;
 
 const API = axios.create({
   baseURL: baseURL
