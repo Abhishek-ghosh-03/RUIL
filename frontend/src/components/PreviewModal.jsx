@@ -59,7 +59,7 @@ const PreviewModal = ({ component, onClose }) => {
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   return (
-    <div className="fixed inset-0 flex justify-center items-end sm:items-center z-50 p-0 sm:p-6">
+    <div className="fixed inset-0 flex justify-center items-end sm:items-center z-[100] p-0 sm:p-6">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
