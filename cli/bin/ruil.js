@@ -40,10 +40,20 @@ program
   .description("Unified CLI for installing UI components across React libraries")
   .version(VERSION);
 
+// ── INSTALL Command (Synonym for interactive add) ──────────────────
+program
+  .command("install")
+  .alias("i")
+  .description("Interactive wizard to install UI components (Default)")
+  .action(async () => {
+    printBanner();
+    await startInteractiveWizard();
+  });
+
 // ── ADD Command ────────────────────────────────────────────────────
 program
   .command("add [components...]")
-  .description("Install UI components. Interactive or direct mode.")
+  .description("Install specific UI components (e.g., shadcn/button)")
   .option("--dry-run", "Preview commands without executing")
   .option("-y, --yes", "Skip confirmation prompt")
   .action(async (components, options) => {
@@ -100,40 +110,44 @@ program
 
     // ── Interactive Mode: `ruil add` ────────────────────────────
     else {
-      let addMore = true;
-      const allResults = [];
-
-      while (addMore) {
-        const libKey = await promptLibrary();
-        const selectedComponents = await promptComponents(libKey);
-        const lib = LIBRARIES[libKey];
-
-        const confirmed = await promptConfirm(lib.name, selectedComponents);
-        if (confirmed) {
-          const result = installComponents(lib, selectedComponents, { dryRun: options.dryRun });
-          allResults.push({
-            libName: lib.name,
-            components: selectedComponents,
-            success: result.success,
-          });
-        }
-
-        const { another } = await (await import("inquirer")).default.prompt([
-          {
-            type: "confirm",
-            name: "another",
-            message: "Add components from another library?",
-            default: false,
-          },
-        ]);
-        addMore = another;
-      }
-
-      if (allResults.length > 0) {
-        printSummary(allResults);
-      }
+      await startInteractiveWizard(options.dryRun);
     }
   });
+
+async function startInteractiveWizard(dryRun = false) {
+  let addMore = true;
+  const allResults = [];
+
+  while (addMore) {
+    const libKey = await promptLibrary();
+    const selectedComponents = await promptComponents(libKey);
+    const lib = LIBRARIES[libKey];
+
+    const confirmed = await promptConfirm(lib.name, selectedComponents);
+    if (confirmed) {
+      const result = installComponents(lib, selectedComponents, { dryRun });
+      allResults.push({
+        libName: lib.name,
+        components: selectedComponents,
+        success: result.success,
+      });
+    }
+
+    const { another } = await (await import("inquirer")).default.prompt([
+      {
+        type: "confirm",
+        name: "another",
+        message: "Add components from another library?",
+        default: false,
+      },
+    ]);
+    addMore = another;
+  }
+
+  if (allResults.length > 0) {
+    printSummary(allResults);
+  }
+}
 
 // ── LIST Command ───────────────────────────────────────────────────
 program
@@ -250,5 +264,16 @@ program
     console.log(chalk.dim(`  Install: ${chalk.white(`ruil add <library>/<component>`)}\n`));
   });
 
-// ── Parse ──────────────────────────────────────────────────────────
-program.parse();
+// ── Main Entry ─────────────────────────────────────────────────────
+const isDirectMode = process.argv.length > 2 && !process.argv[2].startsWith("-");
+
+if (process.argv.length === 2) {
+  // Start Interactive Installer by default if no args
+  printBanner();
+  console.log(chalk.bold.hex("#facc15")("  Welcome! Let's get your UI components installed."));
+  console.log(chalk.dim("  Follow the prompts to select a library and components.\n"));
+  
+  startInteractiveWizard();
+} else {
+  program.parse();
+}

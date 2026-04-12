@@ -186,10 +186,15 @@ const LibraryUpdates = () => {
     try {
       const res = await fetchLibraryUpdates(id);
       setUpdates(res.data.updates || []);
+      
+      if (res.data.status === "limited") {
+        setError(res.data.note || "GitHub rate limit reached. Showing fewer updates.");
+      }
+      
       setLastFetched(new Date().toLocaleTimeString());
     } catch (err) {
       console.error("Failed to fetch updates:", err);
-      setError("Could not reach GitHub. Updates will retry shortly.");
+      setError("Could not reach the server. Please check your connection or environment variables.");
     } finally {
       setLoading(false);
       setIsRefreshing(false);

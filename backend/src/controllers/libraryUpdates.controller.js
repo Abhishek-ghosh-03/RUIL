@@ -39,7 +39,7 @@ function classifyType(title = "") {
 // ── Fetch releases from GitHub ─────────────────────────────────────
 async function fetchReleases(repo) {
   try {
-    const headers = {};
+    const headers = { "User-Agent": "RUIL-App" };
     if (process.env.GITHUB_TOKEN) {
       headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
     }
@@ -58,7 +58,12 @@ async function fetchReleases(repo) {
       tag: r.tag_name,
       body: (r.body || "").slice(0, 300),
     }));
-  } catch {
+  } catch (err) {
+    if (err.response?.status === 403) {
+      console.warn(`[GitHub API] Rate limited or forbidden for ${repo}`);
+    } else {
+      console.error(`[GitHub API] Error fetching releases for ${repo}:`, err.message);
+    }
     return [];
   }
 }
@@ -66,7 +71,7 @@ async function fetchReleases(repo) {
 // ── Fetch recent commits from GitHub ───────────────────────────────
 async function fetchCommits(repo) {
   try {
-    const headers = {};
+    const headers = { "User-Agent": "RUIL-App" };
     if (process.env.GITHUB_TOKEN) {
       headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
     }
@@ -84,7 +89,12 @@ async function fetchCommits(repo) {
       avatarURL: c.author?.avatar_url || "",
       sha: c.sha.slice(0, 7),
     }));
-  } catch {
+  } catch (err) {
+    if (err.response?.status === 403) {
+      console.warn(`[GitHub API] Rate limited or forbidden for ${repo}`);
+    } else {
+      console.error(`[GitHub API] Error fetching commits for ${repo}:`, err.message);
+    }
     return [];
   }
 }
@@ -105,6 +115,10 @@ export const getLibraryUpdates = async (req, res) => {
   const cached = cache.get(library);
   if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
     return res.json({ ...cached.data, cached: true });
+  }
+
+  if (!process.env.GITHUB_TOKEN) {
+    console.warn("[Warning] GITHUB_TOKEN is not set. Rate limits will be very strict.");
   }
 
   try {
@@ -137,13 +151,18 @@ export const getLibraryUpdates = async (req, res) => {
       library,
       repo,
       updatedAt: new Date().toISOString(),
-      updates: updates.slice(0, 20),
+      updates: updates.slice(0, 30),
+      status: updates.length > 0 ? "success" : "limited",
+      note: updates.length === 0 ? "GitHub rate limit reached or no news." : undefined
     };
 
     cache.set(library, { data: payload, timestamp: Date.now() });
     return res.json({ ...payload, cached: false });
   } catch (err) {
-    console.error(`Error fetching updates for ${library}:`, err.message);
-    return res.status(500).json({ error: "Failed to fetch updates from GitHub" });
+    console.error(`Error processing updates for ${library}:`, err.message);
+    return res.status(500).json({ 
+      error: "Internal server error fetching updates",
+      message: err.message
+    });
   }
 };

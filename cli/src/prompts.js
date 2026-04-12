@@ -12,7 +12,7 @@ import { LIBRARIES } from "./registry.js";
  */
 export async function promptLibrary() {
   const choices = Object.entries(LIBRARIES).map(([key, lib]) => ({
-    name: `${lib.name}  ${chalk.dim(`(${lib.components.length} components)`)}`,
+    name: `${chalk.bold(lib.name)}  ${chalk.dim(`(${lib.components.length} components)`)}`,
     value: key,
   }));
 
@@ -20,9 +20,9 @@ export async function promptLibrary() {
     {
       type: "list",
       name: "library",
-      message: chalk.bold("Select a UI library:"),
+      message: chalk.bold.hex("#6366f1")("? Select a UI library to install from:"),
       choices,
-      pageSize: 10,
+      pageSize: 12,
     },
   ]);
 
@@ -37,7 +37,7 @@ export async function promptComponents(libKey) {
   if (!lib) return [];
 
   const choices = lib.components.map((comp) => ({
-    name: `${comp.name}  ${chalk.dim(`— ${comp.description}`)}`,
+    name: `${chalk.bold(comp.name)}  ${chalk.dim(`— ${comp.description}`)}`,
     value: comp.name,
     short: comp.name,
   }));
@@ -46,11 +46,11 @@ export async function promptComponents(libKey) {
     {
       type: "checkbox",
       name: "components",
-      message: chalk.bold(`Select ${lib.name} components to install:`),
+      message: chalk.bold.hex("#6366f1")(`? Select ${lib.name} components (Space to select, Enter to confirm):`),
       choices,
       pageSize: 15,
       validate: (answer) => {
-        if (answer.length === 0) return "Select at least one component.";
+        if (answer.length === 0) return "Please select at least one component.";
         return true;
       },
     },
