@@ -5,9 +5,17 @@ import { X, Check, Copy, Code2, Terminal, Sun, Moon, Sparkles } from "lucide-rea
 const PreviewModal = ({ component, onClose }) => {
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedInstall, setCopiedInstall] = useState(false);
-  const [theme, setTheme] = useState("light"); // Default light for consistency
+  const [theme, setTheme] = useState("light"); 
+  const [settings, setSettings] = useState({ commandDisplay: 'both' });
 
   useEffect(() => {
+    const savedSettings = localStorage.getItem('hub-ui-settings');
+    if (savedSettings) {
+      const parsed = JSON.parse(savedSettings);
+      setSettings(parsed);
+      if (parsed.theme) setTheme(parsed.theme);
+    }
+
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
     };
@@ -57,6 +65,21 @@ const PreviewModal = ({ component, onClose }) => {
   };
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
+  const getFilteredInstallCommand = () => {
+    if (!component.installCommand) return null;
+    if (settings.commandDisplay === 'both') return component.installCommand;
+    
+    // Simple detection: CLI commands usually start with npx or have 'add'
+    const isCLI = component.installCommand.includes('npx') || component.installCommand.includes('add');
+    
+    if (settings.commandDisplay === 'cli' && isCLI) return component.installCommand;
+    if (settings.commandDisplay === 'npm' && !isCLI) return component.installCommand;
+    
+    return settings.commandDisplay === 'cli' ? "// CLI command not available for this component" : "// NPM package not available for this component";
+  };
+
+  const filteredCommand = getFilteredInstallCommand();
 
   return (
     <div className="fixed inset-0 flex justify-center items-end sm:items-center z-[100] p-0 sm:p-6">
@@ -136,19 +159,21 @@ const PreviewModal = ({ component, onClose }) => {
 
             <div className="space-y-6 sm:space-y-8">
               {/* Install Command */}
-              {component.installCommand && (
+              {filteredCommand && (
                 <div>
                   <label className="text-[10px] text-gray-400 block mb-3 font-black uppercase tracking-widest">Install Command</label>
                   <div className="relative group">
-                    <pre className="bg-gray-900 text-indigo-200 p-4 sm:p-5 rounded-2xl overflow-x-auto font-mono text-xs sm:text-sm shadow-xl selection:bg-indigo-500/30">
-                      <code>{component.installCommand}</code>
+                    <pre className={`bg-gray-900 border ${filteredCommand.startsWith('//') ? 'border-red-900/50' : 'border-gray-800'} text-indigo-200 p-4 sm:p-5 rounded-2xl overflow-x-auto font-mono text-xs sm:text-sm shadow-xl selection:bg-indigo-500/30`}>
+                      <code className={filteredCommand.startsWith('//') ? 'text-red-400 opacity-70' : ''}>{filteredCommand}</code>
                     </pre>
-                    <button
-                      onClick={() => copyToClipboard(component.installCommand, 'install')}
-                      className="absolute right-3 top-3 p-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl sm:opacity-0 sm:group-hover:opacity-100 transition-all shadow-lg"
-                    >
-                      {copiedInstall ? <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" /> : <Copy className="w-3 h-3 sm:w-4 sm:h-4" />}
-                    </button>
+                    {!filteredCommand.startsWith('//') && (
+                      <button
+                        onClick={() => copyToClipboard(filteredCommand, 'install')}
+                        className="absolute right-3 top-3 p-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl sm:opacity-0 sm:group-hover:opacity-100 transition-all shadow-lg"
+                      >
+                        {copiedInstall ? <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" /> : <Copy className="w-3 h-3 sm:w-4 sm:h-4" />}
+                      </button>
+                    )}
                   </div>
                 </div>
               )}

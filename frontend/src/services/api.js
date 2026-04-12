@@ -14,3 +14,6 @@ export const searchComponents = (params) =>
 
 export const generateLayoutAI = (payload) =>
   API.post("/ai/generate", payload);
+
+export const fetchLibraryUpdates = (libraryId) =>
+  API.get(`/library-updates/${libraryId}`);

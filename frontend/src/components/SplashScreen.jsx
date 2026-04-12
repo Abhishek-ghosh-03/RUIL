@@ -65,7 +65,7 @@ const SplashScreen = ({ onFinish }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[100] bg-white overflow-hidden"
     >
       {/* Anime Background Calligraphy (Horizontal) */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] flex flex-col justify-around scale-110">
@@ -113,9 +113,10 @@ const SplashScreen = ({ onFinish }) => {
         ))}
       </div>
 
-      {/* Rotating Orbital Logo (Anime Style) */}
+      {/* Rotating Orbital Logo (Anime Style) — Fixed position */}
       <motion.div 
-        className="relative mb-20"
+        className="absolute left-1/2 -translate-x-1/2"
+        style={{ top: "32%" }}
         animate={{ 
           y: [0, -15, 0],
           scale: [1, 1.05, 1]
@@ -143,89 +144,92 @@ const SplashScreen = ({ onFinish }) => {
              rotate: 0,
              transition: { type: "spring", damping: 12, stiffness: 100 }
            }}
-           className="w-32 h-32 rounded-[2.5rem] bg-indigo-600 flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(79,70,229,0.5)] z-10 relative"
+           className="w-32 h-32 rounded-[2.5rem] bg-white flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(79,70,229,0.3)] z-10 relative overflow-hidden border border-gray-100"
          >
-           <LayoutTemplate size={60} className="text-white" />
+           <img src="/ruil-logo.png" alt="RUIL" className="w-24 h-24 object-contain" />
            
            {/* Speed Sparkles */}
            <motion.div
              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
              transition={{ duration: 1, repeat: Infinity }}
-             className="absolute inset-0 rounded-[2.5rem] ring-8 ring-indigo-500/20"
+             className="absolute inset-0 rounded-[2.5rem] ring-8 ring-indigo-500/10"
            />
          </motion.div>
       </motion.div>
 
-      <AnimatePresence mode="wait">
-        {phase === "opening" && (
-          <motion.div
-            key="opening-text"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 1.2 }}
-            className="text-center"
-          >
-            <h1 className="text-6xl font-black tracking-tighter text-gray-900 mb-2">
-              HUB<span className="text-indigo-600">UI</span>
-            </h1>
-            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.5em] flex items-center gap-4 justify-center">
-              <span className="h-px w-8 bg-gray-200"></span>
-              The Vision of Registry
-              <span className="h-px w-8 bg-gray-200"></span>
-            </p>
-          </motion.div>
-        )}
-
-        {phase === "features" && (() => {
-          const FeatureIcon = features[currentFeature].icon;
-          return (
+      {/* Text content — Fixed position below logo */}
+      <div className="absolute left-0 right-0 flex items-center justify-center" style={{ top: "62%" }}>
+        <AnimatePresence mode="wait">
+          {phase === "opening" && (
             <motion.div
-              key={currentFeature}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5, ease: "circOut" }}
-              className="flex flex-col items-center text-center max-w-sm px-6"
+              key="opening-text"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 1.2 }}
+              className="text-center"
             >
-              <div className={`p-4 rounded-3xl ${features[currentFeature].bg} mb-6 shadow-sm border border-white/50`}>
-                <FeatureIcon className={`w-8 h-8 ${features[currentFeature].color}`} />
-              </div>
-              <h2 className={`text-2xl font-black tracking-tight mb-2 ${features[currentFeature].color}`}>
-                {features[currentFeature].title}
-              </h2>
-              <p className="text-sm text-gray-500 font-bold leading-relaxed">
-                {features[currentFeature].desc}
+              <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter mb-4">
+                RUIL
+              </h1>
+              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.5em] flex items-center gap-4 justify-center">
+                <span className="h-px w-8 bg-gray-200"></span>
+                The Vision of Registry
+                <span className="h-px w-8 bg-gray-200"></span>
               </p>
             </motion.div>
-          );
-        })()}
+          )}
 
-        {phase === "closing" && (
-          <motion.div
-            key="closing-text"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="text-center"
-          >
-            <h2 className="text-4xl font-black text-indigo-600 tracking-tighter animate-pulse">
-              INITIALIZING ENGINE
-            </h2>
-            <div className="flex gap-1 justify-center mt-4">
-               {[...Array(5)].map((_, i) => (
-                 <motion.div
-                   key={i}
-                   animate={{ scaleY: [1, 2, 1] }}
-                   transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.1 }}
-                   className="w-1.5 h-4 bg-indigo-200 rounded-full"
-                 />
-               ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          {phase === "features" && (() => {
+            const FeatureIcon = features[currentFeature].icon;
+            return (
+              <motion.div
+                key={currentFeature}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5, ease: "circOut" }}
+                className="flex flex-col items-center text-center max-w-sm px-6"
+              >
+                <div className={`p-4 rounded-3xl ${features[currentFeature].bg} mb-6 shadow-sm border border-white/50`}>
+                  <FeatureIcon className={`w-8 h-8 ${features[currentFeature].color}`} />
+                </div>
+                <h2 className={`text-2xl font-black tracking-tight mb-2 ${features[currentFeature].color}`}>
+                  {features[currentFeature].title}
+                </h2>
+                <p className="text-sm text-gray-500 font-bold leading-relaxed">
+                  {features[currentFeature].desc}
+                </p>
+              </motion.div>
+            );
+          })()}
+
+          {phase === "closing" && (
+            <motion.div
+              key="closing-text"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="text-center"
+            >
+              <h2 className="text-4xl font-black text-indigo-600 tracking-tighter animate-pulse">
+                INITIALIZING ENGINE
+              </h2>
+              <div className="flex gap-1 justify-center mt-4">
+                 {[...Array(5)].map((_, i) => (
+                   <motion.div
+                     key={i}
+                     animate={{ scaleY: [1, 2, 1] }}
+                     transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.1 }}
+                     className="w-1.5 h-4 bg-indigo-200 rounded-full"
+                   />
+                 ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Progress Line */}
-      <div className="absolute bottom-20 w-64 h-1 bg-gray-100 rounded-full overflow-hidden shadow-inner">
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-1 bg-gray-100 rounded-full overflow-hidden shadow-inner">
         <motion.div
           animate={{ width: ["0%", "100%"] }}
           transition={{ duration: 7.5, ease: "linear" }}

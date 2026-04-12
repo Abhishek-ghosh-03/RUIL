@@ -19,13 +19,19 @@ const Registry = () => {
       {/* Mobile Library Selector Bar */}
       <div className="md:hidden mt-20 px-4 py-3 bg-gray-50 border-b border-gray-100 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-3">
-           <div className={`w-8 h-8 rounded-lg bg-gradient-to-tr ${selectedLib?.color} flex items-center justify-center text-white shadow-md`}>
-              <BookOpen size={16} />
-           </div>
-           <div>
-             <span className="text-xs text-gray-400 font-bold uppercase tracking-tight">Ecosystem</span>
-             <h3 className="text-sm font-black text-gray-900 leading-none">{selectedLib?.name}</h3>
-           </div>
+            {selectedLib?.logoURL ? (
+              <div className="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center p-1.5 shadow-sm overflow-hidden flex-shrink-0">
+                 <img src={selectedLib?.logoURL} alt={selectedLib?.name} className="w-full h-full object-contain" />
+              </div>
+            ) : (
+              <div className={`w-8 h-8 rounded-lg bg-gradient-to-tr ${selectedLib?.color} flex items-center justify-center text-white shadow-md flex-shrink-0`}>
+                <BookOpen size={16} />
+              </div>
+            )}
+            <div className="min-w-0">
+              <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest leading-none block mb-0.5">Ecosystem</span>
+              <h3 className="text-xs font-black text-gray-900 leading-none truncate">{selectedLib?.name}</h3>
+            </div>
         </div>
         <button 
           onClick={() => setIsMobileListOpen(true)}

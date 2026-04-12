@@ -5,6 +5,7 @@ import cors from "cors";
 import { connectDB } from "./src/config/db.js";
 import componentRoutes from "./src/routes/component.routes.js";
 import aiRoutes from "./src/routes/ai.routes.js";
+import libraryUpdatesRoutes from "./src/routes/libraryUpdates.routes.js";
 
 dotenv.config();
 
@@ -35,6 +36,7 @@ connectDB();
 
 app.use("/api/components", componentRoutes);
 app.use("/api/ai", aiRoutes);
+app.use("/api/library-updates", libraryUpdatesRoutes);
 
 app.get("/", (req, res) => {
   res.send("API Running...");

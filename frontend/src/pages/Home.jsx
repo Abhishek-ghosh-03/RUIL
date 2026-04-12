@@ -22,6 +22,12 @@ const Home = () => {
     framework: "",
     library: ""
   });
+  const [settings, setSettings] = useState({ recommendations: true });
+
+  useEffect(() => {
+    const savedSettings = localStorage.getItem('hub-ui-settings');
+    if (savedSettings) setSettings(JSON.parse(savedSettings));
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -82,15 +88,17 @@ const Home = () => {
           </div>
 
           <div className="p-4 border-t border-gray-100 bg-gray-50/50">
-            <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-xl">
-              <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="w-4 h-4 text-indigo-600" />
-                <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider">AI Insight</span>
+            {settings.recommendations && (
+              <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-xl">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="w-4 h-4 text-indigo-600" />
+                  <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider">AI Insight</span>
+                </div>
+                <p className="text-[11px] text-indigo-700 leading-relaxed font-medium">
+                  You are currently browsing <span className="text-indigo-900 font-black">{components.length}</span> components optimized for modern React apps.
+                </p>
               </div>
-              <p className="text-[11px] text-indigo-700 leading-relaxed font-medium">
-                You are currently browsing <span className="text-indigo-900 font-black">{components.length}</span> components optimized for modern React apps.
-              </p>
-            </div>
+            )}
           </div>
         </aside>
 

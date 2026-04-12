@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { UI_LIBRARIES } from "../data/libraries";
-import * as Icons from "lucide-react";
-import { Search } from "lucide-react";
+import { Search, Package } from "lucide-react";
 import { useState } from "react";
 
 const LibrarySidebar = ({ selectedId, onSelect }) => {
@@ -38,7 +37,6 @@ const LibrarySidebar = ({ selectedId, onSelect }) => {
             </h3>
             <div className="space-y-1">
               {filteredLibraries.map((lib) => {
-                const Icon = Icons[lib.icon] || Icons.Package;
                 const isActive = selectedId === lib.id;
 
                 return (
@@ -51,15 +49,25 @@ const LibrarySidebar = ({ selectedId, onSelect }) => {
                         : "text-gray-600 hover:bg-gray-200/50 border border-transparent"
                     }`}
                   >
-                    <div
-                      className={`w-8 h-8 rounded-lg bg-gradient-to-tr ${
-                        lib.color
-                      } flex items-center justify-center text-white shadow-md ${
-                        isActive ? "scale-110" : "group-hover:scale-110"
-                      } transition-transform`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </div>
+                    {lib.logoURL ? (
+                      <div
+                        className={`w-8 h-8 rounded-lg bg-white overflow-hidden flex items-center justify-center p-1.5 shadow-sm border border-gray-100 ${
+                          isActive ? "scale-110" : "group-hover:scale-110"
+                        } transition-transform`}
+                      >
+                        <img src={lib.logoURL} alt={lib.name} className="w-full h-full object-contain" />
+                      </div>
+                    ) : (
+                      <div
+                        className={`w-8 h-8 rounded-lg bg-gradient-to-tr ${
+                          lib.color
+                        } flex items-center justify-center text-white shadow-md ${
+                          isActive ? "scale-110" : "group-hover:scale-110"
+                        } transition-transform`}
+                      >
+                        <Package className="w-4 h-4" />
+                      </div>
+                    )}
                     <div className="text-left">
                       <span className={`block text-sm font-bold tracking-tight ${isActive ? 'text-gray-900' : 'text-gray-700'}`}>
                         {lib.name}
