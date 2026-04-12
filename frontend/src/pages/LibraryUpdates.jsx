@@ -38,7 +38,7 @@ const FilterPill = ({ active, label, onClick, count }) => (
     onClick={onClick}
     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider border transition-all ${
       active
-        ? "bg-indigo-600 text-white border-indigo-700 shadow-md shadow-indigo-200"
+        ? "bg-black text-white border-black shadow-md shadow-black/10"
         : "bg-white text-gray-500 border-gray-200 hover:border-gray-300 hover:text-gray-700"
     }`}
   >

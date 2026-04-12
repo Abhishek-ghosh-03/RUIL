@@ -48,7 +48,7 @@ const Documentation = () => {
             <Navbar />
             <main className="flex-1 overflow-y-auto pt-20 custom-scrollbar">
                 <article className="max-w-4xl mx-auto py-8 md:py-10 px-4 md:px-10 prose prose-indigo">
-                    <h1 className="text-2xl md:text-3xl font-black text-gray-900 mb-6 md:mb-8 border-b border-gray-100 pb-4 md:pb-6 tracking-tight">
+                    <h1 className="text-2xl md:text-3xl font-black text-gray-900 mb-6 md:mb-8 border-b-2 border-black pb-4 md:pb-6 tracking-tight">
                         RUIL — Platform Registry &amp; Documentation
                     </h1>
 
@@ -78,7 +78,7 @@ const Documentation = () => {
                         <p className="text-gray-600 leading-relaxed mb-4">
                             Installation varies by library. For <strong>shadcn/ui</strong> (CLI-based), you can add components directly using the command:
                         </p>
-                        <pre className="bg-gray-50 p-4 rounded-lg border text-sm font-mono text-indigo-700 mb-4">
+                        <pre className="bg-gray-50 p-4 rounded-lg border text-sm font-mono text-black mb-4">
                             npx shadcn-ui add button
                         </pre>
                         <p className="text-sm text-gray-500 italic mb-6">Note: Requires Tailwind CSS setup.</p>
@@ -86,13 +86,13 @@ const Documentation = () => {
                         <p className="text-gray-600 leading-relaxed mb-4">
                             For <strong>Material UI</strong> (Package-based), install the required dependencies first:
                         </p>
-                        <pre className="bg-gray-50 p-4 rounded-lg border text-sm font-mono text-indigo-700 mb-4">
+                        <pre className="bg-gray-50 p-4 rounded-lg border text-sm font-mono text-black mb-4">
                             npm install @mui/material @emotion/react @emotion/styled
                         </pre>
                         <p className="text-gray-600 leading-relaxed mb-4">
                             Then import the component in your project:
                         </p>
-                        <pre className="bg-gray-50 p-4 rounded-lg border text-sm font-mono text-indigo-700">
+                        <pre className="bg-gray-50 p-4 rounded-lg border text-sm font-mono text-black">
                             import Button from '@mui/material/Button';
                         </pre>
                     </section>
@@ -473,7 +473,7 @@ ruil list shadcn            # Browse components`}
                             </div>
                             <button
                                 onClick={() => setShowForm(!showForm)}
-                                className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-xs font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all self-start"
+                                className="flex items-center gap-2 px-4 py-2 bg-black text-white text-xs font-bold rounded-xl hover:bg-gray-800 shadow-lg shadow-black/10 transition-all self-start"
                             >
                                 <Plus size={14} />
                                 {showForm ? "Cancel" : "Add Library"}
@@ -540,7 +540,7 @@ ruil list shadcn            # Browse components`}
                                 <button
                                     onClick={handleAdd}
                                     disabled={!form.name.trim()}
-                                    className="px-5 py-2 bg-indigo-600 text-white text-xs font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all disabled:opacity-40 disabled:shadow-none flex items-center gap-2"
+                                    className="px-5 py-2 bg-black text-white text-xs font-bold rounded-xl hover:bg-gray-800 shadow-lg shadow-black/10 transition-all disabled:opacity-40 disabled:shadow-none flex items-center gap-2"
                                 >
                                     <Sparkles size={12} /> Add to Tracker
                                 </button>
@@ -581,7 +581,7 @@ ruil list shadcn            # Browse components`}
                                                         {lib.url && (
                                                             <>
                                                                 <span>•</span>
-                                                                <a href={lib.url} target="_blank" rel="noopener noreferrer" className="text-indigo-500 hover:text-indigo-700 flex items-center gap-1 transition-colors">
+                                                                <a href={lib.url} target="_blank" rel="noopener noreferrer" className="text-black hover:underline flex items-center gap-1 transition-colors">
                                                                     Visit site <ExternalLink size={9} />
                                                                 </a>
                                                             </>

@@ -12,8 +12,8 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="relative group w-full max-w-2xl mx-auto">
-      <div className="absolute inset-0 bg-indigo-500/5 rounded-2xl transition-all duration-500 opacity-50 group-hover:opacity-100"></div>
-      <div className="relative flex items-center bg-white border border-gray-200 rounded-2xl px-5 py-3 shadow-sm transition-all duration-300 focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/10 active:scale-[0.99]">
+      <div className="absolute inset-0 bg-gray-100/50 rounded-2xl transition-all duration-500 opacity-50 group-hover:opacity-100"></div>
+      <div className="relative flex items-center bg-white border border-gray-200 rounded-2xl px-5 py-3 shadow-sm transition-all duration-300 focus-within:border-black focus-within:ring-2 focus-within:ring-black/10 active:scale-[0.99]">
         <Search className="text-gray-400 mr-3 w-5 h-5" />
         <input
           type="text"

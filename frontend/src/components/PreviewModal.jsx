@@ -107,7 +107,7 @@ const PreviewModal = ({ component, onClose }) => {
         {/* Header */}
         <div className="flex justify-between items-center p-5 sm:p-6 border-b border-gray-100 bg-white sm:bg-gray-50/50">
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="p-2 sm:p-2.5 bg-indigo-600 rounded-xl sm:rounded-2xl shadow-lg shadow-indigo-100 shrink-0">
+            <div className="p-2 sm:p-2.5 bg-black rounded-xl sm:rounded-2xl shadow-lg shadow-black/10 shrink-0">
               <Code2 className="text-white w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div className="min-w-0">
@@ -119,7 +119,7 @@ const PreviewModal = ({ component, onClose }) => {
             {/* Theme Toggle */}
             <button 
               onClick={toggleTheme} 
-              className="flex items-center gap-2 p-2 sm:px-4 sm:py-2 text-xs font-bold bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-indigo-600 hover:border-indigo-200 transition-all shadow-sm"
+              className="flex items-center gap-2 p-2 sm:px-4 sm:py-2 text-xs font-bold bg-white border border-gray-200 rounded-xl text-gray-600 hover:text-black hover:border-black transition-all shadow-sm"
               title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -163,7 +163,7 @@ const PreviewModal = ({ component, onClose }) => {
                 <div>
                   <label className="text-[10px] text-gray-400 block mb-3 font-black uppercase tracking-widest">Install Command</label>
                   <div className="relative group">
-                    <pre className={`bg-gray-900 border ${filteredCommand.startsWith('//') ? 'border-red-900/50' : 'border-gray-800'} text-indigo-200 p-4 sm:p-5 rounded-2xl overflow-x-auto font-mono text-xs sm:text-sm shadow-xl selection:bg-indigo-500/30`}>
+                    <pre className={`bg-gray-900 border ${filteredCommand.startsWith('//') ? 'border-red-900/50' : 'border-gray-800'} text-gray-300 p-4 sm:p-5 rounded-2xl overflow-x-auto font-mono text-xs sm:text-sm shadow-xl selection:bg-white/10`}>
                       <code className={filteredCommand.startsWith('//') ? 'text-red-400 opacity-70' : ''}>{filteredCommand}</code>
                     </pre>
                     {!filteredCommand.startsWith('//') && (
@@ -183,7 +183,7 @@ const PreviewModal = ({ component, onClose }) => {
                 <div>
                   <label className="text-[10px] text-gray-400 block mb-3 font-black uppercase tracking-widest">Usage Blueprint</label>
                   <div className="relative group">
-                    <pre className="bg-gray-900 text-indigo-300 p-4 sm:p-5 rounded-2xl overflow-x-auto font-mono text-xs sm:text-sm shadow-xl selection:bg-indigo-500/30 whitespace-pre-wrap leading-relaxed">
+                    <pre className="bg-gray-900 text-gray-300 p-4 sm:p-5 rounded-2xl overflow-x-auto font-mono text-xs sm:text-sm shadow-xl selection:bg-white/10 whitespace-pre-wrap leading-relaxed">
                       <code>{component.importCode}</code>
                     </pre>
                     <button
@@ -198,9 +198,9 @@ const PreviewModal = ({ component, onClose }) => {
             </div>
 
             {/* Tips */}
-            <div className="mt-8 sm:mt-12 p-4 sm:p-5 bg-indigo-50 border border-indigo-100 rounded-2xl">
-              <h4 className="text-[10px] sm:text-xs font-black text-indigo-700 uppercase tracking-widest mb-1">Architecture Tip</h4>
-              <p className="text-xs sm:text-sm text-indigo-900/60 leading-relaxed font-medium">
+            <div className="mt-8 sm:mt-12 p-4 sm:p-5 bg-gray-50 border border-gray-100 rounded-2xl">
+              <h4 className="text-[10px] sm:text-xs font-black text-gray-900 uppercase tracking-widest mb-1">Architecture Tip</h4>
+              <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-medium">
                 Make sure you have your environment configured for {component.library} before running the install command.
               </p>
             </div>

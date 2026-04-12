@@ -59,14 +59,14 @@ const AIConsultant = ({ isOpen, onClose }) => {
                         className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
                     >
                         {/* Header */}
-                        <div className="p-6 border-b border-gray-100 flex items-center justify-between bg-indigo-50/50">
-                            <div className="flex items-center gap-3 text-indigo-600">
-                                <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200">
+                        <div className="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
+                            <div className="flex items-center gap-3 text-black">
+                                <div className="p-2 bg-black text-white rounded-xl shadow-lg shadow-black/10">
                                     <Cpu size={20} />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 leading-none">AI UI Consultant</h3>
-                                    <span className="text-[10px] uppercase font-black tracking-widest text-indigo-400">Powered by RUIL AI</span>
+                                    <span className="text-[10px] uppercase font-black tracking-widest text-gray-400">Powered by RUIL AI</span>
                                 </div>
                             </div>
                             <button onClick={onClose} className="p-2 hover:bg-white rounded-full transition-colors text-gray-400 hover:text-gray-900 shadow-sm border border-transparent hover:border-gray-100">
@@ -90,7 +90,7 @@ const AIConsultant = ({ isOpen, onClose }) => {
                                     <button
                                         onClick={handleConsult}
                                         disabled={loading || !prompt.trim()}
-                                        className="absolute bottom-4 right-4 p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 disabled:opacity-50 disabled:shadow-none transition-all active:scale-95"
+                                        className="absolute bottom-4 right-4 p-2 bg-black text-white rounded-xl shadow-lg shadow-black/10 hover:bg-gray-800 disabled:opacity-50 disabled:shadow-none transition-all active:scale-95"
                                     >
                                         {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Send size={20} />}
                                     </button>

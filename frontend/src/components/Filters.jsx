@@ -8,13 +8,13 @@ const Filters = ({ filters, setFilters }) => {
     });
   };
 
-  const selectClassName = "w-full bg-white border border-gray-200 text-gray-700 rounded-lg p-2.5 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all appearance-none text-sm font-semibold shadow-sm";
+  const selectClassName = "w-full bg-white border border-gray-200 text-gray-700 rounded-lg p-2.5 outline-none focus:border-black focus:ring-1 focus:ring-black transition-all appearance-none text-sm font-semibold shadow-sm";
   const labelClassName = "flex items-center gap-2 text-[10px] font-black tracking-widest text-gray-400 uppercase mt-6 mb-3";
 
   return (
     <div className="bg-transparent space-y-8">
       <div className="flex items-center gap-2 mb-6 border-b border-gray-100 pb-4">
-        <SlidersHorizontal className="text-indigo-600 w-5 h-5" />
+        <SlidersHorizontal className="text-black w-5 h-5" />
         <h2 className="font-bold text-lg text-gray-900">Filters</h2>
       </div>
 
@@ -40,8 +40,8 @@ const Filters = ({ filters, setFilters }) => {
                 onClick={() => setFilters({ ...filters, category: cat.value })}
                 className={`text-left px-3 py-2.5 rounded-xl text-xs font-bold border transition-all duration-200 ${
                   filters.category === cat.value
-                    ? "bg-indigo-600 border-indigo-700 text-white shadow-md shadow-indigo-100"
-                    : "bg-white border-gray-200 text-gray-500 hover:border-indigo-400 hover:text-indigo-600"
+                    ? "bg-black border-black text-white shadow-md shadow-black/10"
+                    : "bg-white border-gray-200 text-gray-500 hover:border-black hover:text-black"
                 }`}
               >
                 {cat.label}
@@ -69,7 +69,7 @@ const Filters = ({ filters, setFilters }) => {
 
         <div>
            <label className={labelClassName}>
-             <Palette className="w-4 h-4 text-indigo-600" /> Library
+             <Palette className="w-4 h-4 text-black" /> Library
            </label>
            <select
              name="library"

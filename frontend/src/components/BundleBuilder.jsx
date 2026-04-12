@@ -163,7 +163,7 @@ const BundleBuilder = ({ bundle, onClose, onRemove }) => {
 
         <div className="flex flex-col md:flex-row flex-grow overflow-hidden min-h-0">
           <div className={`${isSidebarOpen ? 'h-[40vh]' : 'h-14'} md:h-full w-full md:w-1/4 border-b md:border-b-0 md:border-r border-gray-100 bg-gray-50/50 flex flex-col transition-all duration-300 overflow-hidden`}>
-             <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="md:hidden w-full flex items-center justify-between p-4 bg-white border-b border-gray-100"><div className="flex items-center gap-2"><Package className="w-4 h-4 text-indigo-600" /><span className="text-xs font-black uppercase tracking-widest text-gray-900">Assets ({bundle.length})</span></div><ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isSidebarOpen ? 'rotate-180' : ''}`} /></button>
+             <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="md:hidden w-full flex items-center justify-between p-4 bg-white border-b border-gray-100"><div className="flex items-center gap-2"><Package className="w-4 h-4 text-black" /><span className="text-xs font-black uppercase tracking-widest text-gray-900">Assets ({bundle.length})</span></div><ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isSidebarOpen ? 'rotate-180' : ''}`} /></button>
              <div className="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-3">
                {bundle.map(comp => (
                  <div key={comp._id} className="p-3 bg-white border border-gray-100 rounded-xl flex justify-between items-center shadow-sm">
@@ -189,12 +189,12 @@ const BundleBuilder = ({ bundle, onClose, onRemove }) => {
                    {activeTab === 'preview' && (
                      <div className="flex flex-col h-full gap-4 md:gap-6 relative min-h-0">
                         <div className="flex flex-col md:flex-row gap-3">
-                          <div className="flex-1 flex items-center gap-3 md:gap-4 bg-gray-50 border border-gray-200 p-2 md:p-2.5 pl-4 md:pl-5 rounded-xl md:rounded-2xl shadow-sm focus-within:ring-4 focus-within:ring-indigo-100 focus-within:border-indigo-400 transition-all">
-                             <Sparkles className="text-indigo-600 w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-                             <input type="text" disabled={isGenerating} value={aiPrompt} onChange={(e) => setAiPrompt(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleAIPrompt()} placeholder="AI: 'center it, blue bg...'" className="bg-transparent border-none outline-none text-gray-900 w-full text-xs md:text-sm font-bold placeholder-gray-400" />
-                             <button onClick={handleAIPrompt} disabled={isGenerating || !aiPrompt.trim()} className="bg-indigo-600 text-white p-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl transition-all flex items-center justify-center font-bold">{isGenerating ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> : <Send className="w-4 h-4" />}</button>
+                          <div className="flex-1 flex items-center gap-3 md:gap-4 bg-gray-50 border border-gray-200 p-2 md:p-2.5 pl-4 md:pl-5 rounded-xl md:rounded-2xl shadow-sm focus-within:ring-4 focus-within:ring-gray-100 focus-within:border-black transition-all">
+                             <Sparkles className="text-black w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                             <input type="text" disabled={isGenerating} value={aiPrompt} onChange={(e) => setAiPrompt(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleAIPrompt()} placeholder="AI: 'center it, dark bg...'" className="bg-transparent border-none outline-none text-gray-900 w-full text-xs md:text-sm font-bold placeholder-gray-400" />
+                             <button onClick={handleAIPrompt} disabled={isGenerating || !aiPrompt.trim()} className="bg-black text-white p-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl transition-all flex items-center justify-center font-bold">{isGenerating ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> : <Send className="w-4 h-4" />}</button>
                           </div>
-                          <button onClick={saveToCollections} disabled={bundle.length === 0} className={`flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl md:rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95 ${showSaveSuccess ? 'bg-green-600 text-white shadow-lg' : 'bg-white border border-gray-200 text-gray-900 hover:border-indigo-600 hover:text-indigo-600 shadow-sm'}`}>
+                          <button onClick={saveToCollections} disabled={bundle.length === 0} className={`flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl md:rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95 ${showSaveSuccess ? 'bg-green-600 text-white shadow-lg' : 'bg-white border border-gray-200 text-gray-900 hover:border-black hover:text-black shadow-sm'}`}>
                              {showSaveSuccess ? <Check size={16} /> : <Package size={16} />}
                              {showSaveSuccess ? 'Saved to Kits' : 'Save Setup'}
                           </button>
@@ -207,7 +207,7 @@ const BundleBuilder = ({ bundle, onClose, onRemove }) => {
                    )}
                    {activeTab === 'code' && (
                      <div className="relative h-full flex flex-col min-h-0">
-                       <pre className="bg-gray-900 h-full border border-gray-800 text-indigo-200 p-4 md:p-8 rounded-xl md:rounded-3xl overflow-auto font-mono text-[10px] md:text-sm leading-relaxed custom-scrollbar selection:bg-indigo-500/30"><code>{aiReactCode || generateReactCode()}</code></pre>
+                       <pre className="bg-gray-900 h-full border border-gray-800 text-gray-200 p-4 md:p-8 rounded-xl md:rounded-3xl overflow-auto font-mono text-[10px] md:text-sm leading-relaxed custom-scrollbar selection:bg-white/10"><code>{aiReactCode || generateReactCode()}</code></pre>
                        <div className="absolute right-4 bottom-4 flex flex-col gap-2">
                          <button onClick={saveToCollections} className={`p-3 rounded-xl shadow-xl transition-all active:scale-95 flex items-center gap-2 text-[10px] font-bold ${showSaveSuccess ? 'bg-green-600 text-white' : 'bg-indigo-600 text-white hover:bg-indigo-700'}`}>{showSaveSuccess ? <Check size={14} /> : <Package size={14} />}{showSaveSuccess ? "Stored in Kits" : "Store in Settings"}</button>
                          <button onClick={() => copyCode(aiReactCode || generateReactCode(), setCopiedCode)} className="p-3 bg-white text-gray-900 rounded-xl shadow-xl transition-all active:scale-95 flex items-center gap-2 text-[10px] font-bold">{copiedCode ? <Check className="w-3 h-3 md:w-4 md:h-4 text-green-600" /> : <Copy className="w-3 h-3 md:w-4 md:h-4" />}{copiedCode ? "Copied" : "Copy"}</button>

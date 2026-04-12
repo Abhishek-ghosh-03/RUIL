@@ -35,7 +35,7 @@ const Registry = () => {
         </div>
         <button 
           onClick={() => setIsMobileListOpen(true)}
-          className="flex items-center gap-2 px-3 py-1.5 bg-indigo-600 text-white rounded-lg text-xs font-bold shadow-lg shadow-indigo-100"
+          className="flex items-center gap-2 px-3 py-1.5 bg-black text-white rounded-lg text-xs font-bold shadow-lg shadow-black/10"
         >
           <Filter size={14} /> Browse All
         </button>

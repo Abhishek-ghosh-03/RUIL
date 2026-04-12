@@ -37,10 +37,10 @@ const Navbar = () => {
                   <Link
                     key={link.title}
                     to={link.path}
-                    className={`text-sm font-medium transition-colors flex items-center gap-2 ${isActive ? 'text-indigo-600 font-bold' : 'text-gray-600 hover:text-indigo-600'
+                    className={`text-sm font-medium transition-colors flex items-center gap-2 ${isActive ? 'text-black font-bold' : 'text-gray-600 hover:text-black'
                       }`}
                   >
-                    {isActive && <div className="w-1 h-1 bg-indigo-600 rounded-full" />}
+                    {isActive && <div className="w-1.5 h-1.5 bg-black rounded-full" />}
                     {link.title}
                   </Link>
                 );
@@ -58,7 +58,7 @@ const Navbar = () => {
               <div className="h-6 w-px bg-gray-200 mx-2"></div>
               <button
                 onClick={() => setIsAIOpen(true)}
-                className="flex items-center gap-2 text-xs font-bold text-white px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 shadow-lg shadow-indigo-500/20 transition-all active:scale-95 group"
+                className="flex items-center gap-2 text-xs font-bold text-white px-4 py-2 rounded-lg bg-black hover:bg-gray-800 shadow-lg shadow-black/10 transition-all active:scale-95 group"
               >
                 <Sparkles size={14} className="group-hover:animate-pulse" />
                 AI Consultant
@@ -70,7 +70,7 @@ const Navbar = () => {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setIsAIOpen(true)}
-              className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors border border-indigo-100"
+              className="p-2 text-black hover:bg-gray-100 rounded-lg transition-colors border border-gray-200"
             >
               <Sparkles size={20} />
             </button>
@@ -108,7 +108,7 @@ const Navbar = () => {
                       key={link.title}
                       to={link.path}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`flex items-center gap-4 p-4 rounded-xl transition-all ${isActive ? 'bg-indigo-600 text-white shadow-lg' : 'bg-gray-50 text-gray-600'
+                      className={`flex items-center gap-4 p-4 rounded-xl transition-all ${isActive ? 'bg-black text-white shadow-lg' : 'bg-gray-50 text-gray-600'
                         }`}
                     >
                       <Icon size={20} />

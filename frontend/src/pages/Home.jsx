@@ -70,7 +70,7 @@ const Home = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsBundleOpen(true)}
-        className="fixed bottom-8 right-8 bg-indigo-600 text-white p-4 rounded-full shadow-2xl shadow-indigo-200 z-50 flex items-center gap-3 border border-indigo-400"
+        className="fixed bottom-8 right-8 bg-black text-white p-4 rounded-full shadow-2xl shadow-black/20 z-50 flex items-center gap-3 border border-white/10"
       >
         <Layers className="w-6 h-6" />
         {bundle.length > 0 && (
@@ -143,7 +143,7 @@ const Home = () => {
                   key={cat.value}
                   onClick={() => setFilters({ ...filters, category: cat.value })}
                   className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold border transition-all ${filters.category === cat.value
-                    ? "bg-indigo-600 border-indigo-700 text-white shadow-lg"
+                    ? "bg-black border-black text-white shadow-lg"
                     : "bg-white border-gray-200 text-gray-600 hover:border-gray-400"
                     }`}
                 >
