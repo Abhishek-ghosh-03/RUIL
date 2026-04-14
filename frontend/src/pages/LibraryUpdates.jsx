@@ -5,7 +5,6 @@ import {
   ArrowLeft, GitCommit, Tag, Wrench, Sparkles, FileText, RefreshCw,
   Clock, ExternalLink, Package, AlertCircle, Zap, ChevronDown
 } from "lucide-react";
-import Navbar from "../components/Navbar";
 import { UI_LIBRARIES } from "../data/libraries";
 import { fetchLibraryUpdates } from "../services/api";
 
@@ -224,7 +223,6 @@ const LibraryUpdates = () => {
   if (!lib) {
     return (
       <div className="h-screen bg-white flex flex-col overflow-hidden">
-        <Navbar />
         <div className="flex-1 flex items-center justify-center pt-20">
           <div className="text-center">
             <Package className="w-16 h-16 text-gray-200 mx-auto mb-4" />
@@ -240,11 +238,15 @@ const LibraryUpdates = () => {
   }
 
   return (
-    <div className="h-screen bg-[#F9FAFB] flex flex-col overflow-hidden">
-      <Navbar />
-
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <main className="flex-1 overflow-y-auto pt-20 custom-scrollbar">
-        <div className="max-w-4xl mx-auto px-4 md:px-10 py-6 md:py-10">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.3 }}
+          className="max-w-4xl mx-auto px-4 md:px-10 py-6 md:py-10"
+        >
 
           {/* ── Back link ─────────────────────────────────── */}
           <Link
@@ -256,18 +258,14 @@ const LibraryUpdates = () => {
           </Link>
 
           {/* ── Hero header ───────────────────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col gap-5 mb-8 md:mb-10 pb-6 md:pb-8 border-b border-gray-100"
-          >
+          <div className="flex flex-col gap-5 mb-8 md:mb-10 pb-6 md:pb-8 border-b border-gray-100">
             <div className="flex items-center gap-4">
               {lib.logoURL ? (
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-white border border-gray-100 rounded-xl md:rounded-2xl shadow-sm flex items-center justify-center p-2 md:p-2.5 flex-shrink-0">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-white border border-gray-100 rounded-xl md:rounded-2xl shadow-sm flex items-center justify-center p-2 md:p-2.5 flex-shrink-0 text-3xl">
                   <img src={lib.logoURL} alt={lib.name} className="w-full h-full object-contain" />
                 </div>
               ) : (
-                <div className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-tr ${lib.color} rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center text-white flex-shrink-0`}>
+                <div className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-tr ${lib.color} rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center text-white flex-shrink-0 text-3xl`}>
                   <Package size={22} />
                 </div>
               )}
@@ -297,23 +295,18 @@ const LibraryUpdates = () => {
               <RefreshCw size={12} className={isRefreshing ? "animate-spin" : ""} />
               {isRefreshing ? "Refreshing..." : "Refresh"}
             </button>
-          </motion.div>
+          </div>
 
           {/* ── Filter bar ────────────────────────────────── */}
           {!loading && updates.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="flex gap-2 mb-6 md:mb-8 overflow-x-auto pb-2 -mx-1 px-1 custom-scrollbar"
-            >
+            <div className="flex gap-2 mb-6 md:mb-8 overflow-x-auto pb-2 -mx-1 px-1 custom-scrollbar">
               <FilterPill active={filter === "all"} label="All" onClick={() => setFilter("all")} count={updates.length} />
               {Object.entries(BADGE_MAP).map(([key, val]) =>
                 (counts[key] || 0) > 0 ? (
                   <FilterPill key={key} active={filter === key} label={val.label} onClick={() => setFilter(key)} count={counts[key]} />
                 ) : null
               )}
-            </motion.div>
+            </div>
           )}
 
           {/* ── Error banner ──────────────────────────────── */}
@@ -363,7 +356,7 @@ const LibraryUpdates = () => {
               ))}
             </motion.div>
           )}
-        </div>
+        </motion.div>
       </main>
     </div>
   );

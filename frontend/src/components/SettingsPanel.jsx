@@ -54,7 +54,7 @@ const SettingsPanel = ({ isOpen, onClose }) => {
             {isOpen && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-                    <motion.div initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} exit={{ opacity: 0, scale: 0.95, x: 20 }} className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden" >
+                    <motion.div initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} exit={{ opacity: 0, scale: 0.95, x: 20 }} className="relative w-full max-w-md md:max-w-2xl bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden" >
                         <div className="p-6 border-b border-gray-100 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="p-2 bg-gray-100 rounded-xl"><SettingsIcon size={20} className="text-gray-600" /></div>

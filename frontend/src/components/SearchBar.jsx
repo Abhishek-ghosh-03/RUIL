@@ -26,10 +26,6 @@ const SearchBar = ({ onSearch }) => {
           }}
           onKeyDown={handleKeyDown}
         />
-        <div className="flex items-center gap-1 opacity-50">
-          <kbd className="hidden sm:inline-flex items-center justify-center px-2 py-1 text-[10px] font-bold text-gray-500 bg-gray-50 border border-gray-200 rounded-md font-mono">⌘</kbd>
-          <kbd className="hidden sm:inline-flex items-center justify-center px-2 py-1 text-[10px] font-bold text-gray-500 bg-gray-50 border border-gray-200 rounded-md font-mono">K</kbd>
-        </div>
       </div>
     </div>
   );

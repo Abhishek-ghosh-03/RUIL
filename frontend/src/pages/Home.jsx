@@ -5,7 +5,6 @@ import SearchBar from "../components/SearchBar";
 import ComponentCard from "../components/ComponentCard";
 import PreviewModal from "../components/PreviewModal";
 import Filters from "../components/Filters";
-import Navbar from "../components/Navbar";
 import BundleBuilder from "../components/BundleBuilder";
 import { searchComponents } from "../services/api";
 
@@ -63,8 +62,6 @@ const Home = () => {
 
   return (
     <div className="h-screen bg-[#F9FAFB] text-gray-900 flex flex-col overflow-hidden">
-      <Navbar />
-
       {/* Floating Bundle Cart Button */}
       <motion.button
         whileHover={{ scale: 1.05 }}
@@ -87,19 +84,7 @@ const Home = () => {
             <Filters filters={filters} setFilters={setFilters} />
           </div>
 
-          <div className="p-4 border-t border-gray-100 bg-gray-50/50">
-            {settings.recommendations && (
-              <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-xl">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="w-4 h-4 text-indigo-600" />
-                  <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider">AI Insight</span>
-                </div>
-                <p className="text-[11px] text-indigo-700 leading-relaxed font-medium">
-                  You are currently browsing <span className="text-indigo-900 font-black">{components.length}</span> components optimized for modern React apps.
-                </p>
-              </div>
-            )}
-          </div>
+
         </aside>
 
         {/* Main Content Area */}
@@ -122,7 +107,7 @@ const Home = () => {
                 )}
                 <div className="h-4 w-px bg-gray-200 hidden md:block"></div>
                 <div className="flex items-center gap-2 text-xs text-gray-500 font-bold uppercase tracking-tight">
-                  <LayoutGrid className="w-4 h-4 text-indigo-500" />
+                  <LayoutGrid className="w-4 h-4 text-black" />
                   {components.length} Assets
                 </div>
               </div>
@@ -143,8 +128,8 @@ const Home = () => {
                   key={cat.value}
                   onClick={() => setFilters({ ...filters, category: cat.value })}
                   className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold border transition-all ${filters.category === cat.value
-                    ? "bg-black border-black text-white shadow-lg"
-                    : "bg-white border-gray-200 text-gray-600 hover:border-gray-400"
+                    ? "bg-indigo-600 border-indigo-600 text-white shadow-lg shadow-indigo-100"
+                    : "bg-white border-gray-200 text-gray-600 hover:border-indigo-600 hover:text-indigo-600"
                     }`}
                 >
                   {cat.label}

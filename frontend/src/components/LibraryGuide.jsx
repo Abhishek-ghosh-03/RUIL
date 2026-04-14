@@ -59,13 +59,7 @@ const LibraryGuide = ({ selectedId }) => {
       ref={scrollContainerRef}
       className="flex-grow overflow-y-auto bg-white p-3 md:p-8 lg:p-12 h-full custom-scrollbar"
     >
-      <motion.div
-        key={lib.id}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="max-w-4xl mx-auto"
-      >
+      <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col gap-4 md:gap-6 mb-8 md:mb-12 border-b border-gray-100 pb-6 md:pb-12">
           <div>
@@ -309,7 +303,7 @@ const LibraryGuide = ({ selectedId }) => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

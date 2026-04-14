@@ -15,7 +15,18 @@ const Navbar = () => {
     { title: 'Components', path: '/', icon: LayoutTemplate },
     { title: 'Registry', path: '/registry', icon: BookOpen },
     { title: 'Documentation', path: '/documentation', icon: Code2 },
+    { title: 'Studio', path: '/studio', icon: Sparkles },
   ];
+
+  const getIsActive = (path) => {
+    // Exact match for most pages
+    if (location.pathname === path) return true;
+    
+    // Treat library update subpages as part of the Registry ecosystem
+    if (path === '/registry' && location.pathname.startsWith('/library/')) return true;
+    
+    return false;
+  };
 
   return (
     <>
@@ -32,15 +43,15 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-6">
               {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
+                const isActive = getIsActive(link.path);
                 return (
                   <Link
                     key={link.title}
                     to={link.path}
-                    className={`text-sm font-medium transition-colors flex items-center gap-2 ${isActive ? 'text-black font-bold' : 'text-gray-600 hover:text-black'
+                    className={`text-sm font-medium transition-colors flex items-center gap-2 ${isActive ? 'text-indigo-600 font-bold' : 'text-gray-600 hover:text-indigo-600'
                       }`}
                   >
-                    {isActive && <div className="w-1.5 h-1.5 bg-black rounded-full" />}
+                    {isActive && <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full shadow-[0_0_8px_rgba(79,70,229,0.5)]" />}
                     {link.title}
                   </Link>
                 );
@@ -58,7 +69,7 @@ const Navbar = () => {
               <div className="h-6 w-px bg-gray-200 mx-2"></div>
               <button
                 onClick={() => setIsAIOpen(true)}
-                className="flex items-center gap-2 text-xs font-bold text-white px-4 py-2 rounded-lg bg-black hover:bg-gray-800 shadow-lg shadow-black/10 transition-all active:scale-95 group"
+                className="flex items-center gap-2 text-xs font-bold text-white px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-100 transition-all active:scale-95 group"
               >
                 <Sparkles size={14} className="group-hover:animate-pulse" />
                 AI Consultant
@@ -101,14 +112,14 @@ const Navbar = () => {
                 className="fixed top-20 left-0 w-full bg-white border-b border-gray-200 shadow-2xl md:hidden py-6 px-4 flex flex-col gap-4 z-[150] pointer-events-auto"
               >
                 {navLinks.map((link) => {
-                  const isActive = location.pathname === link.path;
+                  const isActive = getIsActive(link.path);
                   const Icon = link.icon;
                   return (
                     <Link
                       key={link.title}
                       to={link.path}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`flex items-center gap-4 p-4 rounded-xl transition-all ${isActive ? 'bg-black text-white shadow-lg' : 'bg-gray-50 text-gray-600'
+                      className={`flex items-center gap-4 p-4 rounded-xl transition-all ${isActive ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-100' : 'bg-gray-50 text-gray-600'
                         }`}
                     >
                       <Icon size={20} />

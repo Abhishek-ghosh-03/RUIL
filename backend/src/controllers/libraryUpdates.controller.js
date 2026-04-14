@@ -27,8 +27,8 @@ const GITHUB_REPOS = {
 
 // ── Classify a commit / release title into a badge type ────────────
 function classifyType(title = "") {
-  const t = title.toLowerCase();
-  if (t.includes("release") || t.includes("v") && /\d/.test(t)) return "release";
+  const t = (title || "").toLowerCase();
+  if (t.includes("release") || (t.includes("v") && /\d/.test(t))) return "release";
   if (t.includes("fix") || t.includes("bug") || t.includes("patch")) return "fix";
   if (t.includes("feat") || t.includes("add") || t.includes("new")) return "feature";
   if (t.includes("docs") || t.includes("readme")) return "docs";
@@ -47,23 +47,22 @@ async function fetchReleases(repo) {
       `https://api.github.com/repos/${repo}/releases?per_page=10`,
       { headers, timeout: 8000 }
     );
+    
+    if (!Array.isArray(data)) return [];
+
     return data.map((r) => ({
-      id: r.id,
-      title: r.name || r.tag_name,
+      id: r.id || Math.random().toString(36),
+      title: r.name || r.tag_name || "New Release",
       type: "release",
-      timestamp: r.published_at,
-      url: r.html_url,
-      author: r.author?.login || "unknown",
+      timestamp: r.published_at || new Date().toISOString(),
+      url: r.html_url || `https://github.com/${repo}`,
+      author: r.author?.login || "github-actions",
       avatarURL: r.author?.avatar_url || "",
-      tag: r.tag_name,
+      tag: r.tag_name || "",
       body: (r.body || "").slice(0, 300),
     }));
   } catch (err) {
-    if (err.response?.status === 403) {
-      console.warn(`[GitHub API] Rate limited or forbidden for ${repo}`);
-    } else {
-      console.error(`[GitHub API] Error fetching releases for ${repo}:`, err.message);
-    }
+    console.warn(`[GitHub API] Releases error for ${repo}:`, err.response?.status || err.message);
     return [];
   }
 }
@@ -79,49 +78,50 @@ async function fetchCommits(repo) {
       `https://api.github.com/repos/${repo}/commits?per_page=15`,
       { headers, timeout: 8000 }
     );
+    
+    if (!Array.isArray(data)) return [];
+
     return data.map((c) => ({
-      id: c.sha,
-      title: c.commit.message.split("\n")[0],
-      type: classifyType(c.commit.message),
-      timestamp: c.commit.author?.date || c.commit.committer?.date,
-      url: c.html_url,
-      author: c.author?.login || c.commit.author?.name || "unknown",
+      id: c.sha || Math.random().toString(36),
+      title: (c.commit?.message || "Internal update").split("\n")[0],
+      type: classifyType(c.commit?.message || ""),
+      timestamp: c.commit?.author?.date || c.commit?.committer?.date || new Date().toISOString(),
+      url: c.html_url || `https://github.com/${repo}`,
+      author: c.author?.login || c.commit?.author?.name || "contributor",
       avatarURL: c.author?.avatar_url || "",
-      sha: c.sha.slice(0, 7),
+      sha: (c.sha || "").slice(0, 7),
     }));
   } catch (err) {
-    if (err.response?.status === 403) {
-      console.warn(`[GitHub API] Rate limited or forbidden for ${repo}`);
-    } else {
-      console.error(`[GitHub API] Error fetching commits for ${repo}:`, err.message);
-    }
+    console.warn(`[GitHub API] Commits error for ${repo}:`, err.response?.status || err.message);
     return [];
   }
 }
 
 // ── Controller ─────────────────────────────────────────────────────
 export const getLibraryUpdates = async (req, res) => {
-  const { library } = req.params;
-  const repo = GITHUB_REPOS[library];
-
-  if (!repo) {
-    return res.status(404).json({
-      error: "Library not found",
-      supported: Object.keys(GITHUB_REPOS),
-    });
-  }
-
-  // Check cache
-  const cached = cache.get(library);
-  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
-    return res.json({ ...cached.data, cached: true });
-  }
-
-  if (!process.env.GITHUB_TOKEN) {
-    console.warn("[Warning] GITHUB_TOKEN is not set. Rate limits will be very strict.");
-  }
-
   try {
+    const { library } = req.params;
+    
+    if (!library) {
+      return res.status(400).json({ error: "Library ID is required" });
+    }
+
+    const repo = GITHUB_REPOS[library.toLowerCase()];
+
+    if (!repo) {
+      return res.status(404).json({
+        error: "Library not found",
+        supported: Object.keys(GITHUB_REPOS),
+      });
+    }
+
+    // Check cache
+    const cached = cache.get(library.toLowerCase());
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+      return res.json({ ...cached.data, cached: true });
+    }
+
+    // Fetch data in parallel
     const [releases, commits] = await Promise.all([
       fetchReleases(repo),
       fetchCommits(repo),
@@ -131,21 +131,29 @@ export const getLibraryUpdates = async (req, res) => {
     const seen = new Set();
     const updates = [];
 
-    for (const r of releases) {
-      if (!seen.has(r.title)) {
+    // Safety: Ensure we are working with arrays
+    const safeReleases = Array.isArray(releases) ? releases : [];
+    const safeCommits = Array.isArray(commits) ? commits : [];
+
+    for (const r of safeReleases) {
+      if (r && r.title && !seen.has(r.title)) {
         seen.add(r.title);
         updates.push(r);
       }
     }
-    for (const c of commits) {
-      if (!seen.has(c.title)) {
+    for (const c of safeCommits) {
+      if (c && c.title && !seen.has(c.title)) {
         seen.add(c.title);
         updates.push(c);
       }
     }
 
-    // Sort by timestamp descending
-    updates.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    // Sort by timestamp descending with fallback for invalid dates
+    updates.sort((a, b) => {
+      const dateA = new Date(a.timestamp || 0).getTime();
+      const dateB = new Date(b.timestamp || 0).getTime();
+      return dateB - dateA;
+    });
 
     const payload = {
       library,
@@ -153,16 +161,17 @@ export const getLibraryUpdates = async (req, res) => {
       updatedAt: new Date().toISOString(),
       updates: updates.slice(0, 30),
       status: updates.length > 0 ? "success" : "limited",
-      note: updates.length === 0 ? "GitHub rate limit reached or no news." : undefined
+      note: updates.length === 0 ? "GitHub rate limit reached or no recent public activity found." : undefined
     };
 
-    cache.set(library, { data: payload, timestamp: Date.now() });
+    cache.set(library.toLowerCase(), { data: payload, timestamp: Date.now() });
     return res.json({ ...payload, cached: false });
   } catch (err) {
-    console.error(`Error processing updates for ${library}:`, err.message);
+    console.error(`[Critical Error] Library Updates for ${req.params.library}:`, err);
     return res.status(500).json({ 
       error: "Internal server error fetching updates",
-      message: err.message
+      message: err.message,
+      stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
     });
   }
 };

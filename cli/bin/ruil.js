@@ -25,10 +25,10 @@ const VERSION = "1.0.0";
 // ── Banner ─────────────────────────────────────────────────────────
 function printBanner() {
   console.log();
-  console.log(chalk.bold.hex("#6366f1")("  ╔══════════════════════════════════════╗"));
-  console.log(chalk.bold.hex("#6366f1")("  ║") + chalk.bold.white("   RUIL — UI Component Installer     ") + chalk.bold.hex("#6366f1")("║"));
-  console.log(chalk.bold.hex("#6366f1")("  ║") + chalk.dim("   Install from 7+ React libraries    ") + chalk.bold.hex("#6366f1")("║"));
-  console.log(chalk.bold.hex("#6366f1")("  ╚══════════════════════════════════════╝"));
+  console.log(chalk.bold.hex("#6366f1")("  ╔══════════════════════════════════════════╗"));
+  console.log(chalk.bold.hex("#6366f1")("  ║") + chalk.bold.white("       RUIL — UI Component Installer      ") + chalk.bold.hex("#6366f1")("║"));
+  console.log(chalk.bold.hex("#6366f1")("  ║") + chalk.dim("       The unified interface for UI       ") + chalk.bold.hex("#6366f1")("║"));
+  console.log(chalk.bold.hex("#6366f1")("  ╚══════════════════════════════════════════╝"));
   console.log();
 }
 
@@ -37,29 +37,19 @@ const program = new Command();
 
 program
   .name("ruil")
-  .description("Unified CLI for installing UI components across React libraries")
+  .description("Unified CLI for managing UI components across React libraries")
   .version(VERSION);
-
-// ── INSTALL Command (Synonym for interactive add) ──────────────────
-program
-  .command("install")
-  .alias("i")
-  .description("Interactive wizard to install UI components (Default)")
-  .action(async () => {
-    printBanner();
-    await startInteractiveWizard();
-  });
 
 // ── ADD Command ────────────────────────────────────────────────────
 program
   .command("add [components...]")
-  .description("Install specific UI components (e.g., shadcn/button)")
-  .option("--dry-run", "Preview commands without executing")
+  .description("Install UI components (e.g., shadcn/button)")
+  .option("-d, --dry-run", "Preview commands without executing")
   .option("-y, --yes", "Skip confirmation prompt")
   .action(async (components, options) => {
     printBanner();
 
-    // ── Direct Mode: `ruil add shadcn/button mui/card` ──────────
+    // ── Direct Mode: `ruil add shadcn/button mui/Card` ──────────
     if (components && components.length > 0) {
       const { tasks, errors } = parseDirectArgs(components);
 
@@ -70,35 +60,26 @@ program
       if (errors.length > 0) console.log();
 
       if (tasks.length === 0) {
-        console.log(chalk.yellow("  No valid components to install."));
         process.exit(1);
       }
 
       const allResults = [];
 
-      // Confirm & Install
-      if (!options.yes) {
-        for (const task of tasks) {
-          const confirmed = await promptConfirm(task.lib.name, task.components);
-          if (!confirmed) {
-            console.log(chalk.dim("  Skipped."));
-            continue;
-          }
-          const result = installComponents(task.lib, task.components, { dryRun: options.dryRun });
-          allResults.push({
-            libName: task.lib.name,
-            components: task.components,
-            success: result.success,
-          });
+      for (const task of tasks) {
+        let confirmed = options.yes;
+        if (!confirmed) {
+          confirmed = await promptConfirm(task.lib.name, task.components);
         }
-      } else {
-        for (const task of tasks) {
+
+        if (confirmed) {
           const result = installComponents(task.lib, task.components, { dryRun: options.dryRun });
           allResults.push({
             libName: task.lib.name,
             components: task.components,
             success: result.success,
           });
+        } else {
+          console.log(chalk.dim(`  Skipped ${task.lib.name}.`));
         }
       }
 
@@ -107,52 +88,16 @@ program
         printSummary(allResults);
       }
     }
-
     // ── Interactive Mode: `ruil add` ────────────────────────────
     else {
       await startInteractiveWizard(options.dryRun);
     }
   });
 
-async function startInteractiveWizard(dryRun = false) {
-  let addMore = true;
-  const allResults = [];
-
-  while (addMore) {
-    const libKey = await promptLibrary();
-    const selectedComponents = await promptComponents(libKey);
-    const lib = LIBRARIES[libKey];
-
-    const confirmed = await promptConfirm(lib.name, selectedComponents);
-    if (confirmed) {
-      const result = installComponents(lib, selectedComponents, { dryRun });
-      allResults.push({
-        libName: lib.name,
-        components: selectedComponents,
-        success: result.success,
-      });
-    }
-
-    const { another } = await (await import("inquirer")).default.prompt([
-      {
-        type: "confirm",
-        name: "another",
-        message: "Add components from another library?",
-        default: false,
-      },
-    ]);
-    addMore = another;
-  }
-
-  if (allResults.length > 0) {
-    printSummary(allResults);
-  }
-}
-
 // ── LIST Command ───────────────────────────────────────────────────
 program
   .command("list [library]")
-  .description("List available libraries or components in a library")
+  .description("List supported libraries or components in a library")
   .action((library) => {
     printBanner();
 
@@ -163,12 +108,13 @@ program
         const count = chalk.dim(`(${lib.components.length} components)`);
         const strategy = chalk.dim.italic(
           lib.strategy === "cli" ? "CLI-based" :
-          lib.strategy === "npm-plugin" ? "Plugin" : "npm package"
+          lib.strategy === "npm-plugin" ? "Tailwind Plugin" : "npm package"
         );
-        console.log(`  ${chalk.cyan.bold(key.padEnd(12))} ${lib.name.padEnd(22)} ${count}  ${strategy}`);
+        console.log(`  ${chalk.cyan.bold(key.padEnd(12))} ${lib.name.padEnd(25)} ${count}  ${strategy}`);
       }
       console.log();
-      console.log(chalk.dim(`  Usage: ${chalk.white("ruil list <library>")} to see components.\n`));
+      console.log(chalk.dim(`  Usage: ${chalk.white("ruil list <library>")} to see components.`));
+      console.log(chalk.dim(`  Usage: ${chalk.white("ruil info <library>")} for library details.\n`));
       return;
     }
 
@@ -182,11 +128,13 @@ program
     const lib = LIBRARIES[libKey];
     console.log(chalk.bold.white(`  ${lib.name} — ${lib.components.length} Components\n`));
 
-    const maxName = Math.max(...lib.components.map((c) => c.name.length));
-    for (const comp of lib.components) {
-      console.log(
-        `  ${chalk.cyan(comp.name.padEnd(maxName + 2))} ${chalk.dim(comp.description)}`
-      );
+    // Simple grid layout for components
+    const components = lib.components.map(c => c.name);
+    const colWidth = 20;
+    const cols = 4;
+    for (let i = 0; i < components.length; i += cols) {
+      const row = components.slice(i, i + cols);
+      console.log("  " + row.map(name => chalk.cyan(name.padEnd(colWidth))).join(""));
     }
 
     console.log();
@@ -196,7 +144,7 @@ program
 // ── INFO Command ───────────────────────────────────────────────────
 program
   .command("info <library>")
-  .description("Show detailed info about a library")
+  .description("Show detailed information about a library")
   .action((library) => {
     printBanner();
 
@@ -208,21 +156,21 @@ program
 
     const lib = LIBRARIES[libKey];
     console.log(chalk.bold.white(`  ${lib.name}`));
-    console.log(chalk.dim(`  ─────────────────────────────────`));
-    console.log(`  Strategy:    ${chalk.cyan(lib.strategy)}`);
-    console.log(`  Components:  ${chalk.cyan(lib.components.length)}`);
+    console.log(chalk.dim(`  ────────────────────────────────────────────`));
+    console.log(`  ${chalk.bold("Strategy:")}    ${chalk.cyan(lib.strategy)}`);
+    console.log(`  ${chalk.bold("Components:")}  ${chalk.cyan(lib.components.length)}`);
     if (lib.packages) {
-      console.log(`  Packages:    ${chalk.cyan(lib.packages.join(", "))}`);
+      console.log(`  ${chalk.bold("Packages:")}    ${chalk.cyan(lib.packages.join(", "))}`);
     }
     if (lib.baseCommand) {
-      console.log(`  Base Cmd:    ${chalk.cyan(lib.baseCommand)}`);
+      console.log(`  ${chalk.bold("Base Cmd:")}    ${chalk.cyan(lib.baseCommand)}`);
     }
     if (lib.importPrefix) {
-      console.log(`  Import:      ${chalk.cyan(lib.importPrefix)}`);
+      console.log(`  ${chalk.bold("Import:")}      ${chalk.cyan(lib.importPrefix)}`);
     }
-    console.log(`  Docs:        ${chalk.underline.cyan(lib.docsURL)}`);
+    console.log(`  ${chalk.bold("Docs:")}        ${chalk.underline.cyan(lib.docsURL)}`);
     if (lib.setupNote) {
-      console.log(`  Setup:       ${chalk.yellow(lib.setupNote)}`);
+      console.log(`  ${chalk.bold("Setup Note:")}  ${chalk.yellow(lib.setupNote)}`);
     }
     console.log();
   });
@@ -264,15 +212,47 @@ program
     console.log(chalk.dim(`  Install: ${chalk.white(`ruil add <library>/<component>`)}\n`));
   });
 
-// ── Main Entry ─────────────────────────────────────────────────────
-const isDirectMode = process.argv.length > 2 && !process.argv[2].startsWith("-");
+async function startInteractiveWizard(dryRun = false) {
+  let addMore = true;
+  const allResults = [];
+  const inquirer = (await import("inquirer")).default;
 
+  while (addMore) {
+    const libKey = await promptLibrary();
+    const selectedComponents = await promptComponents(libKey);
+    const lib = LIBRARIES[libKey];
+
+    const confirmed = await promptConfirm(lib.name, selectedComponents);
+    if (confirmed) {
+      const result = installComponents(lib, selectedComponents, { dryRun });
+      allResults.push({
+        libName: lib.name,
+        components: selectedComponents,
+        success: result.success,
+      });
+    }
+
+    const { another } = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "another",
+        message: "Add components from another library?",
+        default: false,
+      },
+    ]);
+    addMore = another;
+  }
+
+  if (allResults.length > 0) {
+    printSummary(allResults);
+  }
+}
+
+// ── Main Entry ─────────────────────────────────────────────────────
 if (process.argv.length === 2) {
-  // Start Interactive Installer by default if no args
   printBanner();
   console.log(chalk.bold.hex("#facc15")("  Welcome! Let's get your UI components installed."));
   console.log(chalk.dim("  Follow the prompts to select a library and components.\n"));
-  
   startInteractiveWizard();
 } else {
   program.parse();

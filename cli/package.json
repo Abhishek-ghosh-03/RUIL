@@ -1,7 +1,7 @@
 {
-  "name": "ruil",
+  "name": "ruil-cli",
   "version": "1.0.0",
-  "description": "RUIL — Unified CLI for installing UI components across React libraries",
+  "description": "RUIL — The unified CLI to install components from multiple React UI libraries (shadcn, MUI, Chakra, etc.)",
   "type": "module",
   "bin": {
     "ruil": "./bin/ruil.js"
@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "node bin/ruil.js"
   },
+  "private": false,
   "keywords": [
     "react",
     "ui",
@@ -17,7 +18,11 @@
     "shadcn",
     "mui",
     "chakra",
-    "tailwind"
+    "tailwind",
+    "nextui",
+    "daisyui",
+    "mantine",
+    "antd"
   ],
   "author": "RUIL Team",
   "license": "MIT",
