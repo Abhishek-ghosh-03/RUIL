@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Layers, Sparkles, LayoutGrid, Search, X } from "lucide-react";
+import { Layers, Sparkles, LayoutGrid, Search, X, ChevronRight, ArrowRight, Zap, Globe, Cpu, Package, Code, Terminal, Box, Database, MousePointer2, ChevronDown } from "lucide-react";
 import SearchBar from "../components/SearchBar";
 import ComponentCard from "../components/ComponentCard";
 import PreviewModal from "../components/PreviewModal";
@@ -21,12 +21,6 @@ const Home = () => {
     framework: "",
     library: ""
   });
-  const [settings, setSettings] = useState({ recommendations: true });
-
-  useEffect(() => {
-    const savedSettings = localStorage.getItem('hub-ui-settings');
-    if (savedSettings) setSettings(JSON.parse(savedSettings));
-  }, []);
 
   useEffect(() => {
     fetchData();
@@ -45,7 +39,7 @@ const Home = () => {
   };
 
   const handleSearch = (query) => {
-    setFilters({ ...filters, q: query });
+    setFilters({ ...filters, q: query, category: "" });
   };
 
   const toggleBundleItem = (comp) => {
@@ -60,14 +54,40 @@ const Home = () => {
     setFilters({ q: "", category: "", framework: "", library: "" });
   };
 
+  const groupedComponents = useMemo(() => {
+    const groups = {};
+    components.forEach(comp => {
+      const cat = comp.category || "General";
+      if (!groups[cat]) groups[cat] = [];
+      groups[cat].push(comp);
+    });
+    return groups;
+  }, [components]);
+
+  const isSearching = filters.q || filters.category || filters.library;
+
+  const LIBRARIES = ['SHADCN UI', 'MATERIAL UI', 'CHAKRA UI', 'NEXT UI', 'MANTINE UI', 'ANT DESIGN', 'RADIX UI', 'HEADLESS UI'];
+
+  // User requested mapping: Forms -> Inputs, Overlays -> Modals
+  // Backend Registry tags matching: input, form, modal, navigation, feedback, data display
+  const CATEGORY_MAP = {
+    'Featured': '',
+    'Inputs': 'input',
+    'Navigation': 'navigation',
+    'Data Display': 'data display',
+    'Feedback': 'feedback',
+    'Modals': 'modal'
+  };
+
+  const CATEGORIES = Object.keys(CATEGORY_MAP);
+
   return (
-    <div className="h-screen bg-[#F9FAFB] text-gray-900 flex flex-col overflow-hidden">
-      {/* Floating Bundle Cart Button */}
+    <div className="h-screen text-gray-900 flex flex-col overflow-hidden font-sans selection:bg-black selection:text-white">
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsBundleOpen(true)}
-        className="fixed bottom-8 right-8 bg-black text-white p-4 rounded-full shadow-2xl shadow-black/20 z-50 flex items-center gap-3 border border-white/10"
+        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-black text-white p-4 rounded-full shadow-2xl shadow-black/20 z-50 flex items-center gap-3 border border-white/10"
       >
         <Layers className="w-6 h-6" />
         {bundle.length > 0 && (
@@ -77,161 +97,193 @@ const Home = () => {
         )}
       </motion.button>
 
-      <div className="flex flex-1 pt-20 overflow-hidden">
-        {/* Left Sidebar: Filters */}
-        <aside className="w-80 border-r border-gray-200 bg-white flex flex-col hidden lg:flex shadow-sm">
+      <div className="flex flex-1 pt-16 md:pt-20 overflow-hidden">
+        <aside className="w-72 border-r border-gray-100 bg-white flex flex-col hidden xl:flex">
           <div className="flex-1 overflow-y-auto p-6 scrollbar-hide">
             <Filters filters={filters} setFilters={setFilters} />
           </div>
-
-
         </aside>
 
-        {/* Main Content Area */}
-        <main className="flex-1 flex flex-col overflow-hidden relative">
-          {/* Header & Quick Action Bar */}
-          <header className="p-6 border-b border-gray-200 bg-white z-20">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="flex-1 max-w-2xl">
-                <SearchBar onSearch={handleSearch} />
-              </div>
-
-              <div className="flex items-center gap-4">
-                {(filters.q || filters.category || filters.library) && (
-                  <button
-                    onClick={clearFilters}
-                    className="text-xs text-red-600 hover:text-red-700 flex items-center gap-1 font-semibold transition-colors"
-                  >
-                    <X className="w-3 h-3" /> Clear All Filters
-                  </button>
-                )}
-                <div className="h-4 w-px bg-gray-200 hidden md:block"></div>
-                <div className="flex items-center gap-2 text-xs text-gray-500 font-bold uppercase tracking-tight">
-                  <LayoutGrid className="w-4 h-4 text-black" />
-                  {components.length} Assets
+        <main className="flex-1 flex flex-col overflow-hidden relative bg-transparent">
+          <header className="relative px-4 md:px-6 py-4 md:py-6 border-b border-gray-100 bg-white/60 backdrop-blur-xl z-[40]">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6 mb-6 md:mb-8">
+                <div className="flex-1 w-full">
+                  <SearchBar onSearch={handleSearch} />
+                </div>
+                <div className="hidden md:flex flex-col items-end">
+                  <span className="text-[9px] text-emerald-600 font-black uppercase tracking-widest mb-1">● System Active</span>
+                  <span className="text-sm font-black text-gray-900 leading-none">{components.length} Assets Available</span>
                 </div>
               </div>
-            </div>
 
-            {/* Dynamic Category Scroller (Mobile / Tablet) */}
-            <div className="flex overflow-x-auto mt-6 pb-2 gap-2 no-scrollbar lg:hidden">
-              {[
-                { label: 'All', value: '' },
-                { label: 'Buttons', value: 'button' },
-                { label: 'Inputs', value: 'input' },
-                { label: 'Forms', value: 'form' },
-                { label: 'Cards', value: 'card' },
-                { label: 'Modals', value: 'modal' },
-                { label: 'Data Display', value: 'data display' }
-              ].map((cat) => (
-                <button
-                  key={cat.value}
-                  onClick={() => setFilters({ ...filters, category: cat.value })}
-                  className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold border transition-all ${filters.category === cat.value
-                    ? "bg-indigo-600 border-indigo-600 text-white shadow-lg shadow-indigo-100"
-                    : "bg-white border-gray-200 text-gray-600 hover:border-indigo-600 hover:text-indigo-600"
-                    }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+                {CATEGORIES.map((cat) => {
+                  const targetTag = CATEGORY_MAP[cat];
+                  const isActive = (cat === 'Featured' && filters.category === "") ||
+                    (filters.category.toLowerCase() === targetTag.toLowerCase());
+
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => {
+                        setFilters({ ...filters, category: targetTag, q: "" });
+                      }}
+                      className={`whitespace-nowrap px-5 md:px-6 py-2 md:py-2.5 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-all border ${isActive
+                        ? "bg-black text-white border-black shadow-lg shadow-black/5"
+                        : "bg-white/80 text-gray-400 border-gray-100 hover:border-black hover:text-black"
+                        }`}
+                    >
+                      {cat}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </header>
 
-          {/* Scrollable Results Area */}
-          <div className="flex-1 overflow-y-auto p-6 md:p-10 custom-scrollbar">
-            <div className="max-w-6xl mx-auto">
-              {/* Visual Break/Header */}
-              <div className="mb-10">
-                <h2 className="text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-3">
-                  {filters.category ? (
-                    <span className="capitalize">{filters.category} Components</span>
-                  ) : filters.q ? (
-                    <span>Search results for "{filters.q}"</span>
-                  ) : (
-                    <span>Discover Components</span>
-                  )}
-                  {!loading && components.length > 0 && (
-                    <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-1 rounded-md font-bold uppercase tracking-tighter">
-                      Result
-                    </span>
-                  )}
-                </h2>
-                <p className="text-sm text-gray-500 mt-1 font-medium">
-                  {filters.library ? `Filtered by ${filters.library} library` : "A curated selection of production-ready React UI elements."}
-                </p>
+          <div className="flex-1 overflow-y-auto custom-scrollbar scroll-smooth relative z-10">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
+
+              <div className="relative w-full py-12 md:py-16 mb-8 md:mb-10 flex items-center justify-center overflow-hidden min-h-[300px] md:min-h-[420px]">
+
+                {/* Calligraphy Background Text Layer */}
+                <div className="absolute inset-0 pointer-events-none opacity-[0.04] flex flex-col justify-around scale-110 overflow-hidden">
+                  <div className="flex flex-col gap-10 md:gap-12">
+                    {LIBRARIES.map((name, i) => (
+                      <motion.div
+                        key={i}
+                        animate={{
+                          x: i % 2 === 0 ? ["-150%", "150%"] : ["150%", "-150%"]
+                        }}
+                        transition={{
+                          duration: 20 + i * 5,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                        className="whitespace-nowrap text-3xl md:text-5xl font-black tracking-tight text-indigo-950 uppercase"
+                      >
+                        {name} • {name} • {name} • {name} • {name} • {name} • {name} • {name}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Geometric Mesh Layer */}
+                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(120deg, #6b7280 1px, transparent 1px), linear-gradient(210deg, #6b7280 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
+
+                <div className="relative z-10 flex flex-col md:flex-row items-center justify-around w-full max-w-6xl px-6 md:px-12 gap-8 md:gap-14">
+
+                  {/* Floating Text Features */}
+                  <div className="flex-1 flex flex-col items-center md:items-end text-center md:text-right gap-8 md:gap-12 w-full">
+                    <motion.div
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-full"
+                    >
+                      <h3 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-black mb-1 md:mb-2 flex items-center justify-center md:justify-end gap-3">
+                        <Database size={14} className="text-gray-300" /> 14+ Libraries
+                      </h3>
+                      <p className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Unified UI Component Architecture</p>
+                    </motion.div>
+                    <motion.div
+                      animate={{ y: [0, 8, 0] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-full"
+                    >
+                      <h3 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-black mb-1 md:mb-2 flex items-center justify-center md:justify-end gap-3">
+                        <Cpu size={14} className="text-gray-300" /> AI Composer
+                      </h3>
+                      <p className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Automated Page Structure Engine</p>
+                    </motion.div>
+                  </div>
+
+                  {/* Logo - Pulsing Motion */}
+                  <div className="flex-shrink-0 relative group py-4 md:py-0">
+                    <div className="absolute inset-x-0 bottom-0 top-0 bg-white/40 blur-[30px] md:blur-[50px] opacity-100 z-0" />
+                      <motion.img 
+                        animate={{ scale: [1, 1.05, 1], rotate: [0, 2, 0, -2, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        src="/ruil-logo.png" alt="RUIL" 
+                        className="w-24 h-24 md:w-32 md:h-32 object-contain relative z-10 rounded-full" 
+                      />
+                  </div>
+
+                  {/* Floating Text Features */}
+                  <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-8 w-full">
+                    <motion.div
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-full"
+                    >
+                      <h3 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-black mb-1 md:mb-2 flex items-center justify-center md:justify-start gap-3">
+                        <Zap size={14} className="text-gray-300" /> Live Preview
+                      </h3>
+                      <p className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Instant Framed Component View</p>
+                    </motion.div>
+                    <motion.div
+                      animate={{ y: [0, 10, 0] }}
+                      transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-full"
+                    >
+                      <h3 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-black mb-1 md:mb-2 flex items-center justify-center md:justify-start gap-3">
+                        <Terminal size={14} className="text-gray-300" /> RUIL CLI
+                      </h3>
+                      <p className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Unified Installer Package</p>
+                    </motion.div>
+                  </div>
+                </div>
               </div>
 
               {loading ? (
-                <div className="flex flex-col items-center justify-center py-40 text-indigo-400">
-                  <div className="relative">
-                    <Layers className="w-12 h-12 animate-spin-slow text-indigo-600" />
-                  </div>
-                  <p className="mt-6 text-xs tracking-widest uppercase font-black text-indigo-600">Indexing components...</p>
-                </div>
-              ) : components.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-32 text-gray-500 text-center border-2 border-dashed border-gray-200 rounded-3xl bg-white/50">
-                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 border border-gray-200">
-                    <Search className="w-8 h-8 text-gray-300" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">No assets match your search</h3>
-                  <p className="text-sm max-w-sm px-6 font-medium">
-                    We couldn't find any components matching <span className="text-indigo-600 font-bold">"{filters.q || filters.category}"</span>.
-                  </p>
-                  <button
-                    onClick={clearFilters}
-                    className="mt-8 px-6 py-2 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl text-sm font-bold text-gray-900 transition-all shadow-sm"
-                  >
-                    Reset All Filters
-                  </button>
+                <div className="flex py-20 md:py-40 justify-center">
+                  <div className="w-10 h-10 border-2 border-black border-t-transparent rounded-full animate-spin" />
                 </div>
               ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  layout
-                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pb-20"
-                >
-                  {components.map((comp, idx) => (
-                    <motion.div
-                      key={comp._id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: Math.min(idx * 0.05, 0.5) }}
-                    >
-                      <ComponentCard
-                        component={comp}
-                        onClick={setSelected}
-                        onAdd={toggleBundleItem}
-                        isAdded={!!bundle.find(c => c._id === comp._id)}
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
+                <div className="space-y-12 md:space-y-16 pb-24">
+                  {isSearching ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                      {components.map((comp) => (
+                        <ComponentCard key={comp._id} component={comp} onClick={setSelected} onAdd={toggleBundleItem} isAdded={!!bundle.find(c => c._id === comp._id)} />
+                      ))}
+                    </div>
+                  ) : (
+                    Object.entries(groupedComponents).map(([category, items]) => (
+                      <section key={category}>
+                        <div className="flex items-center justify-between mb-6 md:mb-8">
+                          <h2 className="text-lg md:text-2xl font-black text-gray-900 tracking-tight">{category}</h2>
+                          <button
+                            onClick={() => {
+                              setFilters({ ...filters, category: category.toLowerCase(), q: "" });
+                            }}
+                            className="text-[10px] md:text-xs font-black text-indigo-600 flex items-center gap-1"
+                          >
+                            View All <ChevronRight size={14} />
+                          </button>
+                        </div>
+                        <div className="flex gap-4 md:gap-6 overflow-x-auto no-scrollbar pb-4">
+                          {items.map((comp) => (
+                            <div key={comp._id} className="min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                              <ComponentCard component={comp} onClick={setSelected} onAdd={toggleBundleItem} isAdded={!!bundle.find(c => c._id === comp._id)} />
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    ))
+                  )}
+                </div>
               )}
             </div>
           </div>
         </main>
       </div>
 
-      {/* Modals */}
       <AnimatePresence>
-        {selected && (
-          <PreviewModal
-            component={selected}
-            onClose={() => setSelected(null)}
-          />
-        )}
+        {selected && <PreviewModal component={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
 
       <AnimatePresence>
-        {isBundleOpen && (
-          <BundleBuilder
-            bundle={bundle}
-            onClose={() => setIsBundleOpen(false)}
-            onRemove={(id) => setBundle(bundle.filter(c => c._id !== id))}
-          />
-        )}
+        {isBundleOpen && <BundleBuilder bundle={bundle} onClose={() => setIsBundleOpen(false)} onRemove={(id) => setBundle(bundle.filter(c => c._id !== id))} />}
       </AnimatePresence>
     </div>
   );
