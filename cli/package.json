@@ -10,6 +10,7 @@
     "dev": "node bin/ruil.js"
   },
   "private": false,
+  "files": ["bin", "src", "README.md"],
   "keywords": [
     "react",
     "ui",
@@ -24,8 +25,16 @@
     "mantine",
     "antd"
   ],
-  "author": "RUIL Team",
+  "author": "Sumit Adhikari",
   "license": "MIT",
+  "homepage": "https://ruil.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ruil-cli"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.1.0",

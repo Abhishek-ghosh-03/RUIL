@@ -87,7 +87,7 @@ const Documentation = () => {
                                 npx shadcn-ui add button
                             </pre>
                             <p className="text-sm text-gray-500 italic mb-6">Note: Requires Tailwind CSS setup.</p>
-                            
+
                             <p className="text-gray-600 leading-relaxed mb-4">
                                 For <strong>Material UI</strong> (Package-based), install the required dependencies first:
                             </p>
@@ -191,7 +191,7 @@ const Documentation = () => {
                         {/* RUIL CLI — Command-Line Tool Documentation             */}
                         {/* ═══════════════════════════════════════════════════════ */}
                         <section className="mb-10">
-                            <h2 className="text-xl font-bold text-gray-800 mb-4">11. RUIL CLI Tool</h2>
+                            <h2 className="text-xl font-bold text-gray-800 mb-4">11. RUIL CLI Tool(Globally not available)</h2>
                             <p className="text-gray-600 leading-relaxed mb-4">
                                 RUIL includes a dedicated CLI tool for installing UI components from multiple libraries directly from your terminal. It supports both <strong>interactive</strong> and <strong>direct</strong> command modes.
                             </p>
@@ -201,7 +201,7 @@ const Documentation = () => {
                                 Install the RUIL CLI globally using npm to use it across any React project:
                             </p>
                             <pre className="bg-gray-900 text-indigo-200 p-4 rounded-xl text-sm font-mono mb-6 overflow-x-auto">
-    {`npm install -g ruil-cli`}
+                                {`npm install -g ruil-cli`}
                             </pre>
 
                             <h3 className="text-lg font-bold text-gray-700 mb-3">Available Commands</h3>
@@ -260,7 +260,7 @@ const Documentation = () => {
                                 <li>Run a single command with components in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm text-indigo-700">library/component</code> format:</li>
                             </ol>
                             <pre className="bg-gray-900 text-indigo-200 p-4 rounded-xl text-sm font-mono mb-2 overflow-x-auto">
-    {`ruil add shadcn/button shadcn/card mui/TextField chakra/Modal`}
+                                {`ruil add shadcn/button shadcn/card mui/TextField chakra/Modal`}
                             </pre>
                             <ol className="list-decimal list-inside space-y-2 text-gray-600 mb-6" start={2}>
                                 <li>The CLI <strong>groups components by library</strong> automatically.</li>
@@ -351,7 +351,7 @@ const Documentation = () => {
 
                             <h3 className="text-lg font-bold text-gray-700 mb-3 mt-6">Example: Dry-Run Output</h3>
                             <pre className="bg-gray-900 text-indigo-200 p-4 rounded-xl text-xs font-mono mb-4 overflow-x-auto leading-relaxed">
-    {`$ node bin/ruil.js add shadcn/button shadcn/card mui/TextField --dry-run -y
+                                {`$ node bin/ruil.js add shadcn/button shadcn/card mui/TextField --dry-run -y
 
     📦 shadcn/ui
     ─────────────────────────────────
@@ -378,7 +378,7 @@ const Documentation = () => {
 
                             <h4 className="text-base font-bold text-gray-700 mb-2">Standard Commands</h4>
                             <pre className="bg-gray-900 text-indigo-200 p-4 rounded-xl text-sm font-mono mb-6 overflow-x-auto leading-relaxed">
-    {`# Search for components
+                                {`# Search for components
     ruil search modal
 
     # List all supported libraries
@@ -399,7 +399,7 @@ const Documentation = () => {
                                 You can also run RUIL without a global installation using <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm text-indigo-700">npx</code>:
                             </p>
                             <pre className="bg-gray-900 text-indigo-200 p-4 rounded-xl text-sm font-mono mb-6 overflow-x-auto leading-relaxed">
-    {`npx ruil-cli add shadcn/button`}
+                                {`npx ruil-cli add shadcn/button`}
                             </pre>
 
                             <h4 className="text-base font-bold text-gray-700 mb-2">Quick Reference</h4>
